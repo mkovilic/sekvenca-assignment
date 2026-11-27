@@ -6,11 +6,11 @@
 ## How to run it
 
 1. Install [uv](https://docs.astral.sh/uv/). Run `cp .env.example .env` and add `OPENAI_API_KEY`, then run `uv sync`.
-2. `uv run recept run --brief inputs/brief.yaml --run my-run`. Leave out `--brief` to get the interactive briefing.
-3. The judgement steps run through **Claude Code** (`provider: agent`, the default, no API cost), the **OpenAI API** (`provider: openai`, only the OpenAI key, ~$0.5) or the **Claude API** (`provider: anthropic`). With the two APIs the run is fully automatic. In agent mode, open Claude Code in the folder and paste the starting prompt from `RECEPT.md`.
-4. **Human steps:** approve the plan before images are generated, and approve the finished frames before delivery. Both gates are skipped with `--yes`.
+2. `uv run recept ui` opens the web UI at http://127.0.0.1:8765. Create a **New run** (the brief is prefilled with the GymBeam demo).
+3. Choose who does the judgement steps (analysis, plan, captions, QA) in the header: **Claude Code** (headless, your login, no API cost), the **OpenAI API** (only the OpenAI key, ~$0.5) or the **Claude API**. Press Start. Everything runs on its own.
+4. **Human steps:** approve (and optionally edit) the plan before any image is generated, then review the frames with their QA scores, regenerate any frame and approve delivery to `deliverables/`.
 
-5. **Web UI** (simplest): `uv run recept ui`. Everything runs from the browser with the backend chosen in the header (Claude Code headless, OpenAI API or Claude API). It stops only at the two approvals (plan editing, frames with QA scores, regenerating a single frame, delivery).
+**Optional, terminal:** `uv run recept run --brief inputs/brief.yaml --run my-run`, with the backend set in `config.yaml` (`models.provider`: `agent`, `openai`, `anthropic`). In agent mode, open Claude Code in the folder and paste the starting prompt from `RECEPT.md`. `--yes` skips both approvals.
 
 Settings are in `config.yaml`: models, image quality, sizes, brand colours and fonts, QA threshold and number of retries. Docker: see the README.
 
