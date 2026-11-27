@@ -2,63 +2,65 @@
 
 ## Post 1 — carousel
 
-**Goal:** Education -> saves and shares
+**Goal:** Edukacija -> spremanja i dijeljenja
 
-**Concept:** 'Creatine, no nonsense': 6 slides in the brand's proven template (dark grid, cream + orange headline, page numbers), one webshop fact per slide. Product on the first and last slide.
+**Concept:** "Kreatin bez mudrovanja": 4 najčešća pitanja o kreatinu, svako na jednom slajdu, s kratkim odgovorom iz službenih FAQ podataka. Tamni brendirani predložak kao horoskopski carousel, narančasti naglasci, stvarno pakiranje 100% Kreatina na naslovnom i završnom slajdu.
 
-**Why:** The zodiac carousel shows the brand already uses this template for save-worthy content, and creatine is a recurring hero of their feed. Education built only on official product data builds trust and gives a reason to save without inventing claims.
+**Why:** Analiza pokazuje da profil nema vidljiv čisti edukativni sadržaj o kreatinu, iako je kreatin stalni 'junak' stiliziranih objava. Horoskopski carousel (07) je brendov vlastiti edukativni predložak (tamna podloga, condensed naslov, narančasta ključna riječ), ali je donio malo lajkova jer je zabavan, a ne koristan – ovaj carousel zadržava vizualni jezik i daje razlog za spremanje. Pitanje-odgovor format potiče dijeljenje ('pošalji prijatelju koji stalno pita').
 
-1. **Creatine, no nonsense** — 4 things to know before your first scoop. · product: kreatin1-monohidrat-gymbeam (composite)
-   - scene: 
-2. **5 g. One scoop.** — That is the recommended daily dose. Do not exceed 5 g a day.
-   - scene: 
-3. **Morning or night? Either.** — Take it any time of day. Consistency matters more than the clock.
-   - scene: 
-4. **Built for short, intense sets** — Formulated for performance in short, repeated intervals of intense exercise.
-   - scene: 
-5. **Unisex. No exceptions.** — Same goal, same 5 g dose for everyone who trains strength or high intensity.
-   - scene: 
-6. **Save it for leg day** — 100% Creatine Monohydrate – GymBeam. Link in bio. · product: kreatin1-monohidrat-gymbeam (composite)
-   - scene: 
+1. **Kreatin: 4 pitanja, kratki odgovori** — Spremi prije nego te netko u teretani opet pita. · product: kreatin1-monohidrat-gymbeam (composite)
+   - scene: Dark charcoal studio background (#20201E) with a very faint thin grid of lines, a soft warm orange rim glow coming from the lower centre, subtle vignette, minimal and clean. Upper half completely calm and empty for text. A flat matte dark surface runs to the bottom edge with a clear open space in the lower-middle for a product, even soft studio light from the front. No text, no letters, no logos, no packaging, no people.
+2. **Koliko? Jedna mjerica** — 5 g u 250 ml vode, jednom dnevno. Ne prekoračuj 5 g.
+   - scene: Dark charcoal background (#20201E) with a very faint thin grid, a small soft orange glow in the lower right corner, minimal, calm, plenty of empty space across the upper and middle area for text. No text, no letters, no logos, no packaging, no people.
+3. **Kada? Kad tebi odgovara** — Bilo koje doba dana. Dosljednost je važnija od točnog vremena.
+   - scene: Dark charcoal background (#20201E) with a very faint thin grid, a soft warm orange glow in the lower left corner, minimal, calm, plenty of empty space across the upper and middle area for text. No text, no letters, no logos, no packaging, no people.
+4. **Samo za dečke? Ne.** — Uniseks proizvod za sve koji treniraju snagu ili intenzivno.
+   - scene: Dark charcoal background (#20201E) with a very faint thin grid, a soft orange glow along the bottom edge, minimal, calm, plenty of empty space across the upper and middle area for text. No text, no letters, no logos, no packaging, no people.
+5. **Što zapravo radi?** — Podržava izvedbu u kratkim, uzastopnim intervalima intenzivnog vježbanja.
+   - scene: Dark charcoal background (#20201E) with a very faint thin grid, a soft warm orange glow in the upper right corner, minimal, calm, plenty of empty space across the middle area for text. No text, no letters, no logos, no packaging, no people.
+6. **Spremi i pošalji ekipi** — Onom prijatelju koji svaki trening pita: kad piješ kreatin? · product: kreatin1-monohidrat-gymbeam (composite)
+   - scene: Dark charcoal studio background (#20201E) with a very faint thin grid, a few softly blurred warm orange bokeh lights in the far background for a subtle festive December mood, upper half calm and empty for text. A flat matte dark surface runs to the bottom edge with a clear open space in the lower-middle for a product, even soft studio light from the front. No text, no letters, no logos, no packaging, no people.
 
-**Caption brief:** Short intro in the brand voice, ask people to save the post and tag the friend who overthinks creatine, a question for comments (when do you take it?), link in bio. No prices or discounts.
+**Caption brief:** Kratak uvod u brendovom tonu (opušteno, 2. lice, emoji), ponoviti 4 odgovora u natuknicama s emojijima kao u MERRY FITMAS opisu. CTA: spremi objavu i pošalji prijatelju koji stalno pita za kreatin; pitanje za komentare (npr. 'Kad vi pijete kreatin?'). Samo provjerene činjenice, bez cijena, popusta i zdravstvenih tvrdnji izvan FAQ-a. 3–6 hashtagova uključujući #gymbeamhr.
 
-**Facts:** Recommended daily dose is 5 g, one scoop; do not exceed 5 g per day; Can be taken at any time of day; daily consistency matters more than timing; Formulated to increase performance during short, repeated intervals of intense exercise; Unisex product with the same primary goal of supporting performance
+**Facts:** Preporučena dnevna doza za GymBeam 100% Creatine Monohydrate je 5 grama. To odgovara jednoj mjerici praha, koju treba pomiješati s 250 ml vode.; Savjetuje se uzimanje jedne doze dnevno. Nemojte prekoračiti maksimalnu dnevnu dozu od 5 g.; može se uzimati u bilo koje doba dana, jer je vrijeme uzimanja fleksibilno; dosljednost u svakodnevnom uzimanju važnija je od određenog vremena; GymBeam 100% Creatine Monohydrate je uniseks proizvod; formuliran za povećanje izvedbe tijekom kratkotrajnih, uzastopnih intervala intenzivnog vježbanja; Namijenjen je sportašima i aktivnim pojedincima čiji je primarni cilj poboljšanje izvedbe tijekom treninga snage ili sličnih aktivnosti visokog intenziteta.
 
 ## Post 2 — image
 
-**Goal:** Product showcase -> purchase intent
+**Goal:** Product showcase -> namjera kupnje
 
-**Concept:** 'Holidays? Protein doesn't take a break.' Just Whey as the hero of a warm holiday scene in the brand's dark tones, with key facts from the official product page.
+**Concept:** Just Whey (Chocolate Milkshake) kao zvijezda zimskog jutra: stvarno pakiranje na drvenom kuhinjskom pultu uz prozor sa snježnim svjetlom, topla blagdanska atmosfera, provjerene činjenice u tekstu.
 
-**Why:** The profile is in holiday mode (MERRY FITMAS, holiday flavours), and the brand's product posts always show the label clearly. The real packshot guarantees accurate packaging, and the facts (22.5 g protein, grass-fed milk) give a concrete reason to buy.
+**Why:** Analiza: Just Whey gotovo je nevidljiv u feedu, a kuhinjski pult je brendova uobičajena scena za proizvode (MERRY FITMAS reel, unboxing). Objava samo s proizvodom, bez influencera, s jasnim brojkama iz FAQ-a (22,5 g proteina, grass-fed, DigeZyme®) daje razlog za kupnju bez izmišljanja cijena ili popusta. Blagdanski detalji povezuju objavu s aktivnom MERRY FITMAS sezonom.
 
-1. **Holidays? Protein doesn't take a break.** — Just Whey: 22.5 g protein per 30 g scoop, from grass-fed cows' milk. · product: protein-just-whey-gymbeam (composite)
-   - scene: Cozy dark winter kitchen counter at night, matte charcoal stone surface in the foreground, warm golden Christmas string lights softly out of focus in the background, a few cinnamon sticks, star anise and pine branches at the far left and right edges, subtle warm orange rim light, deep dark tones, premium product photography, shallow depth of field.
+1. **Just Whey: 22,5 g proteina** — Po mjerici od 30 g. Sirutka od krava s pašne ispaše, s DigeZyme® enzimima. · product: protein-just-whey-gymbeam (composite)
+   - scene: Photographic cosy winter kitchen at early morning: a light oak wooden countertop runs flat to the bottom edge of the frame, with a clear open empty space in the lower-middle where a product will stand. Background softly out of focus: a window with pale blue snowy daylight, a few warm blurred string-light bokeh dots, a small sprig of fir and two cinnamon sticks at the far left edge of the counter, a plain white ceramic mug with chocolate shake at the far right edge. Soft diffused studio-like front light matching a product packshot, gentle shadows, warm cream and brown tones with a touch of orange. Upper third of the image is calm, soft and uncluttered for text. No text, no letters, no logos, no packaging, no people, no pedestal.
 
-**Caption brief:** Festive and short: protein in December too, 2-3 emoji bullets with facts (22.5 g protein per 30 g scoop, grass-fed cows' milk, DigeZyme® enzymes), question 'What's your holiday flavour?', link in bio.
+**Caption brief:** Opušten, kratak opis s emojijima: zimsko jutro / blagdani i dalje uz plan. 2–3 natuknice s provjerenim činjenicama (22,5 g proteina po mjerici od 30 g, krave s pašne ispaše, DigeZyme® enzimi, priprema s 200–300 ml vode ili mlijeka za kremastiju teksturu). CTA: 'Kliknite na link u opisu profila' (postojeći brendov obrazac). Bez cijena, popusta i kodova. 3–6 hashtagova uključujući #gymbeamhr.
 
-**Facts:** 22.5 g protein per 30 g scoop; Whey protein from grass-fed cows' milk; Made in Germany; DigeZyme® enzymes
+**Facts:** Svaka mjerica od 30 g proizvoda Just Whey Grass-Fed Protein – GymBeam pruža 22,5 g proteina.; formuliran je s proteinom sirutke dobivenim od krava s pašne ispaše; obogaćeno je mješavinom DigeZyme® od šest probavnih enzima; pomiješajte jednu mjericu od 30 g s 200 – 300 ml vode. Možete ga pomiješati i s mlijekom za kremastiju teksturu.; Just Whey je protein sirutke iz mlijeka krava hranjenih travom, proizveden u Njemačkoj.
 
 ## Post 3 — reel
 
-**Goal:** Trend/fun -> reactions and comments
+**Goal:** Trend/zabava -> reakcije i komentari
 
-**Concept:** 'Neon Christmas': a holiday follow-up to their retro neon / Miami trend - palm trees wrapped in Christmas lights, neon sunset, creatine as the 'power-up'. 5 illustrated shots with motion, no people.
+**Concept:** "Neon Fitmas": nastavak retro neon / Miami ilustracije, ali bez ljudi – prazni neonski bulevar u sumrak s palmama omotanim blagdanskim lampicama, a glavne uloge preuzimaju stvarna pakiranja kreatina i Just Wheyja kao izrezane naljepnice. Završava pitanjem 'Tim kreatin ili tim whey?' za komentare.
 
-**Why:** Their GTA-style illustration has 2,147 likes, several times more than any other visible post, but no product. Continuing the same visual language with the product in frame and a seasonal twist reuses proven engagement and points it at a product. The style is inspired by the genre, with no game title, logos or characters.
+**Why:** Retro neon ilustracija (01) ima 2.147 lajkova, daleko najviše na profilu; brief traži nastavak tog trenda sa stvarnim proizvodom i bez ljudi. Stilizirane objave samo s proizvodom (kreatin s krilima, Halloween medenjak) već rade za brend, a 'sticker' pakiranja odgovaraju brendovim izrezanim kolažima (FOOD10). Blagdanski detalji spajaju trend s MERRY FITMAS sezonom. Estetika je samo inspirirana žanrom – bez naslova igara, logotipa, likova ili fontova. Pitanje s dva tima koristi postojeći CTA obrazac s izborom (1️⃣ 2️⃣ 3️⃣).
 
-1. **Sunset. Neon. Leg day.** — 
-   - scene: Retro 1980s Miami-style illustrated poster, wide neon-lit ocean boulevard at sunset, tall palm trees wrapped in glowing Christmas fairy lights, pastel art deco hotels with pink and teal neon trim, purple-pink-orange gradient sky, sun setting over the sea, glossy wet asphalt reflections, clean bold digital illustration with crisp outlines.
-2. **Mission: 5 g a day** — One scoop. Every day. · product: kreatin1-monohidrat-gymbeam (composite)
-   - scene: Retro 1980s Miami-style illustrated poster, wooden beach boardwalk at golden-pink sunset, a round wooden pedestal in the lower middle, palm trees with Christmas lights on both sides, art deco buildings with neon trim in the background, warm orange and magenta sky, clean bold digital illustration with crisp outlines.
-3. **Morning or night?** — Either. Just don't skip it.
-   - scene: Retro 1980s Miami-style illustrated poster at night, empty outdoor beach gym with chrome weight racks and dumbbells under neon pink and cyan lights, palm trees with Christmas fairy lights, starry violet sky with a crescent moon over the ocean, clean bold digital illustration with crisp outlines.
-4. **Power-up unlocked** — 100% Creatine Monohydrate. · product: kreatin1-monohidrat-gymbeam (composite)
-   - scene: Retro 1980s synthwave illustrated poster, glowing neon pedestal in the lower middle with radiating orange and magenta light rays, neon grid floor stretching to a huge striped setting sun, silhouettes of palm trees with Christmas lights at the sides, sparkles in the air, clean bold digital illustration with crisp outlines.
-5. **Who's training tomorrow?** — Tell us in the comments.
-   - scene: Retro 1980s Miami-style illustrated poster, wide sunset beach with a row of palm trees wrapped in glowing Christmas lights, a small decorated Christmas tree on the sand in the lower middle, lifeguard tower painted pink and teal, purple-orange gradient sky, calm sea, clean bold digital illustration with crisp outlines.
+1. **Vratili smo se. Sad s lampicama.** — 
+   - scene: Vertical retro 80s neon illustration in a bold painterly digital-art style: an empty seaside boulevard at sunset, magenta and violet sky with orange-gold sun on the horizon, tall palm trees wrapped in warm Christmas string lights, pastel art-deco hotels with pink and cyan neon tubes (no signs, no lettering), calm sea with city skyline silhouette. Top third of the frame is open sky, calm and uncluttered. No text, no letters, no logos, no signs, no packaging, no people, no characters.
+2. **Tko je glavni ovog prosinca?** — 
+   - scene: Vertical retro 80s neon illustration in a bold painterly digital-art style: an empty wooden boardwalk by the beach at dusk, pink-purple sky, palm trees decorated with glowing red and green Christmas baubles, a white vintage sports car silhouette with no badges parked far in the background, warm neon glow reflecting on the planks. The bottom third is calm open boardwalk, uncluttered for text. No text, no letters, no logos, no signs, no packaging, no people, no characters.
+3. **Kreatin. 5 g dnevno.** — Bilo kad. Važno je da je svaki dan. · product: kreatin1-monohidrat-gymbeam (composite)
+   - scene: Vertical retro 80s neon illustration in a bold painterly digital-art style: close view of a flat wooden boardwalk running to the bottom edge of the frame with a clear open empty space in the lower-middle where a product will stand, behind it a blurred magenta-orange sunset, palm trunks wrapped in warm string lights, soft pink and cyan neon glow from the sides. Top third calm sky for text. No text, no letters, no logos, no signs, no packaging, no people, no characters, no pedestal.
+4. **Just Whey ulazi u ekipu** — 22,5 g proteina po mjerici. · product: protein-just-whey-gymbeam (composite)
+   - scene: Vertical retro 80s neon illustration in a bold painterly digital-art style: a flat poolside deck of a pastel art-deco hotel at night running to the bottom edge of the frame, with a clear open empty space in the lower-middle where a product will stand, turquoise glowing pool behind, palm trees with warm Christmas lights, violet night sky with a few stars, pink and cyan neon tubes on the building (no signs, no lettering). Top third calm for text. No text, no letters, no logos, no signs, no packaging, no people, no characters, no pedestal.
+5. **Neon. Palme. Fitmas.** — 
+   - scene: Vertical retro 80s neon illustration in a bold painterly digital-art style: an empty sandy beach at dusk with a tall palm tree fully wrapped in glowing Christmas lights like a festive tree, a few plain wrapped gift boxes in orange and pink without any markings at its base, magenta and violet sky, gentle waves with neon reflections. Top third calm open sky for text. No text, no letters, no logos, no signs, no packaging, no people, no characters.
+6. **Tim kreatin ili tim whey?** — Odaberi svoj tim u komentarima. · product: kreatin1-monohidrat-gymbeam (composite)
+   - scene: Vertical retro 80s neon illustration in a bold painterly digital-art style: an empty seaside promenade at twilight, flat pink-tiled ground running to the bottom edge with a clear open empty space in the lower-middle where a product will stand, two palm trees framing the scene wrapped in warm string lights, a big orange-gold sun setting into a violet sea, soft neon glow. Top third calm sky for text. No text, no letters, no logos, no signs, no packaging, no people, no characters, no pedestal.
 
-**Caption brief:** Playful caption that picks up their GTA trend without naming the game ('Neon Christmas edition'), one fact (5 g a day, any time of day), a comment prompt with an emoji (🌴 if you train over the holidays), brand hashtags.
+**Caption brief:** Vrlo kratko i zaigrano, kao opis originalne neon objave ('Sretan produženi vikend! 😎') – jedna do dvije rečenice s emojijima, spomenuti da je neon ekipa dobila blagdansko izdanje. CTA: 'Tim kreatin ili tim whey? Napišite u komentarima 👇'. Bez spominjanja igara, naslova igara ni hashtagova poput #gta. Činjenice samo ako su provjerene (5 g kreatina dnevno, 22,5 g proteina po mjerici). 3–6 hashtagova uključujući #gymbeamhr.
 
-**Facts:** Recommended daily dose is 5 g, one scoop; Can be taken at any time of day; daily consistency matters more than timing
+**Facts:** Preporučena dnevna doza za GymBeam 100% Creatine Monohydrate je 5 grama.; može se uzimati u bilo koje doba dana, jer je vrijeme uzimanja fleksibilno; dosljednost u svakodnevnom uzimanju važnija je od određenog vremena; Svaka mjerica od 30 g proizvoda Just Whey Grass-Fed Protein – GymBeam pruža 22,5 g proteina.

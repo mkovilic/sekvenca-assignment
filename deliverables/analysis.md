@@ -1,84 +1,97 @@
 # Brand analysis
 
-@gymbeamhr is GymBeam's Croatian profile (7,818 posts, 42.2K followers), positioned as 'Europe's largest one-stop shop for every sport'. The feed mixes influencer reels (mostly women in GymBeam apparel, in a kitchen or gym), product photography of own-label products, seasonal campaigns (Black Friday, the MERRY FITMAS advent calendar) and trend/meme posts (GTA-style illustration, gingerbread man in a Halloween scene, zodiac signs). The identity is held together by GymBeam orange, dark backgrounds and heavy condensed headlines with one highlighted word. The GTA-style illustration has several times more likes than any other visible post.
+GymBeam HR (@gymbeamhr, 42,2 tis. pratitelja, 7.818 objava) vodi vizualno raznolik, ali prepoznatljiv profil: narančasta + tamne podloge kao osnova, na koju se slažu sezonske palete (crveno-zelena MERRY FITMAS kampanja, ružičasta za prehranu). Feed je pretežno usmjeren na ljude (influencerice, treneri, UGC-stil reelsi u kuhinji i teretani), dok su objave samo s proizvodom rjeđe i obično stilizirane (Halloween medenjak, kreatin s krilima, Manuka med). Najjači vidljivi rezultat ima trend-ilustracija u retro neon/Miami stilu u kolaboraciji sa zanamari (2.147 lajkova nakon 7 dana), dok edukativni i promotivni postovi brenda bilježe desetke do stotinjak lajkova. Ton je opušten, kratak, s emojijima i izravnim pitanjima publici. Prostor za rast: edukacija o kreatinu i Just Wheyju na temelju provjerenih FAQ činjenica te nastavak retro neon trenda sa stvarnim pakiranjem u kadru, bez ljudi.
 
 ## Tone of voice
-- relaxed and friendly, addresses followers as a group ('vi')
-- energetic, emoji-heavy (💪 😉 🎄 ✨ 👇)
-- playful and trend-aware (zodiac signs, GTA, 'Trick or treat')
-- sales-oriented but light: 'link in bio', discount codes only when a promotion exists
-- invites interaction with questions ('Which flavour are you trying first?', 'Send this to someone we nailed')
+- Opušten i prijateljski, obraćanje u 2. licu množine ("Volite božićne okuse?", "Ne propustite...")
+- Kratke rečenice s puno emojija (😎, 💪, 😉, 🎄, 👇)
+- Humor i igra riječima (MERRY FITMAS, "Eat. Train. Be merry.", "Ista teretana. Dvanaest različitih energija.")
+- Pozivi na interakciju: pitanja u komentarima, "Pošaljite osobi koju smo pogodili"
+- Promotivno izravan kada je riječ o akcijama (kodovi, Black Friday)
 
 ## Audience
-Young adults in Croatia who train in the gym or recreationally, with a visible lean toward a female audience (#gbwomen, most reels feature female creators), interested in supplements, healthy snacks and sportswear.
+Hrvatska publika 18–35 zainteresirana za teretanu, fitness lifestyle i zdravu prehranu; jak udio žena (hashtag #gbwomen, mnogo influencerica, outfiti), uz mušku publiku za snagu i borilačke sportove. Prate domaće fitness influencere i reagiraju na pop-kulturne trendove.
 
 ## Recurring themes
-- own-label supplements (creatine, protein, vitamins, nut butters)
-- healthy food and recipes (PB&J, granola, cakes; a 'Recipes' story highlight)
-- sportswear and outfits (an 'Outfits' story highlight)
-- seasonal campaigns: Black Friday, MERRY FITMAS advent calendar, holiday flavours
-- influencer collaborations and discount codes
-- trend and meme formats: GTA illustration, Halloween, zodiac signs
+- Sezonske kampanje: MERRY FITMAS adventski kalendar i blagdanska kolekcija, Halloween, Black Friday
+- Influencerske kolaboracije i outfiti (GymBeam odjeća, šejkeri, termos-čaše)
+- Zdrava prehrana i recepti (maslaci od orašastih plodova, granola, Jammy spread, proteinski kolači)
+- Suplementi u svakodnevici ("Suplementi koje uzimam i čemu služe", pakiranje dnevnih vitamina)
+- Trend/pop-kultura formati (retro neon ilustracija, horoskop)
+- Unboxing i dostava (GymBeam kutija, BOX NOW suradnja)
 
 ## Visual style
-- GymBeam orange as the main accent (logo, products, highlighted words in headlines)
-- dark, near-black backgrounds in graphic posts (zodiac carousel with a faint line grid)
-- studio packshots on flat backgrounds, often as cut-out collages (FOOD10 carousel)
-- dramatic lighting in athlete photography (orange smoke, dark backdrop)
-- festive advent graphics: red, green, pink, checker patterns
-- one illustrated trend post in a retro neon / Miami style (purple-pink sky, palms, art deco)
+- Prevladavaju fotografije i reelsi s ljudima, snimljeni u teretani ili kućnoj kuhinji, prirodno svjetlo
+- Tamne, kontrastne studijske fotografije sportaša s narančastim/crvenim svjetlom
+- Sezonske ilustrativne grafike s geometrijskim uzorcima (rombovi, pruge, zvjezdice) u crveno-zeleno-ružičastoj
+- Stilizirane objave proizvoda: kreatin s anđeoskim krilima, kreatin u horror sceni, medenjak među bundevama
+- Retro neon / Miami ilustracija (ljubičasto-ružičasti zalazak, palme, art deco zgrade)
+- Edukativni carousel s tamnom pozadinom, rešetkom i paginacijom (01 / 13)
+- Packshotovi kao "izrezane naljepnice" s bijelim rubom na obojenoj pozadini
 
-**Palette:** #FA762B, #20201E, #FEF6E2, #ED8E94, #C8102E
-**Typography:** Headlines in a very heavy, condensed grotesque, often all caps; part of the headline in cream and one word or the brand name in orange ('Horoskopski znakovi kao GymBeam proizvodi'). Reel subtitles in a white rounded sans with one word in orange ('KRENUTI OD'). Promo headlines (ŽELITE OVO?) in a heavy outlined display face.
+**Palette:** #FF5A1F, #1B1B1D, #F5EFE4, #F2A3AC, #2E5A3C, #D7262E
+**Typography:** Naslovi su masivni, vrlo debeli (black/extra-bold) sans-serif fontovi. Na edukativnom carouselu uski (condensed) grotesk u kombinaciji velikih i malih slova, krem boje na tamnoj podlozi, s ključnim riječima istaknutima narančasto ("GymBeam proizvodi"). Promo naslovi pišu se verzalom (BLACK FRIDAY, ŽELITE OVO?) uz dvobojno razdvajanje riječi (narančasto + bijelo) ili narančasti tekst s tamnocrvenom obrubom. Podnaslovi u kurzivnom serifu ("Ista teretana. Dvanaest različitih energija."), sitne oznake razmaknutim verzalom (HOROSKOPSKO IZDANJE, PRONAĐI SVOJ ZNAK →). Titlovi u reelsima: bijeli bold verzal s jednom riječi naglašenom narančasto/žuto ("KRENUTI OD", "ALI OVO JE", "ĆAO EKIPA").
 
 ## Product presentation
-Products are always clearly visible with a readable label: studio packshots, products in creators' hands, in a shopping cart (Black Friday) or as cut-out collage elements over food. Creatine monohydrate is repeatedly the hero of creative scenes (angel wings, 'Trick or treat').
+Proizvodi se najčešće pojavljuju u rukama influencera ili na kuhinjskom stolu (reels), u kolica kod Black Friday kampanje, ili kao izrezani packshotovi na jednobojnoj pozadini (FOOD10, horoskop). Postoje i stilizirane scene samo s proizvodom (kreatin s krilima, kreatin u Trick or Treat sceni, Manuka med na narančastom gradijentu). Logo i etikete su uvijek čitljivi. Kreatin monohidrat se ponavlja kao samostalni junak; Just Whey nije jasno prepoznatljiv ni na jednom vidljivom postu.
 
 ## People
-People dominate the reels: female and male creators in GymBeam apparel, usually in a kitchen or gym, talking to camera. Collaborations are tagged (e.g. @zanamari). Graphic and educational posts have no people.
+Ljudi dominiraju gridom: mlade, njegovane influencerice u GymBeam odjeći (ružičasti setovi, crop topovi), muški sportaši u tamnoj, dramatičnoj rasvjeti (borilački sportovi, bench press), te prirodni "talking head" reelsi u kuhinji. Trend-ilustracija također prikazuje osobu (stilizirana verzija influencerice).
 
 ## Captions
-- short 1-2 sentence captions for graphics and promotions ('Ne propustite Black Friday u GymBeamu! 😉💪')
-- longer captions with emoji bullet lists of products for launches (holiday collection)
-- a question to the audience at the end to drive comments
-- call to action: 'Klinite na link u opisu profila' (link in bio)
-- discount code only when a real promotion exists (FOOD10, ZANAMARI5)
-- 3-5 hashtags at the end, always #gymbeamhr plus #gbfit / #gbig / #gbhealthy / #gbwomen
+- Uglavnom kratki opisi u jednoj rečenici + emoji ("Sretan produženi vikend! 😎", "Ne propustite Black Friday u GymBeamu! 😉💪")
+- Dulji opisi za lansiranja: uvodno pitanje, popis proizvoda s emoji-natuknicama, pitanje za komentare, "Kliknite na link u opisu profila"
+- CTA za interakciju: "Koji recept pripremate prvi? 1️⃣ 2️⃣ ili 3️⃣ 👇", "Pošaljite osobi koju smo pogodili."
+- Promo kodovi u opisu (FOOD10; kod influencerice ZANAMARI5)
+- 3–6 hashtagova na kraju, uvijek #gymbeamhr i barem jedan brendirani #gb… tag
 
-**Hashtags:** #gymbeamhr #gbfit #gbig #gbhealthy #gbwomen #gbmotivation
+**Hashtags:** #gymbeamhr #gbig #gbfit #gbhealthy #gbwomen #gbmotivation #zdravahrana #recepti #blackfriday #adventcalendar #christmas
 
 ## Engagement
-- GTA-style illustration (01_gta_trend.png): 2,147 likes and dozens of comments after one week
-- FOOD10 recipe carousel (06): 116 likes after ~2.5 weeks
-- zodiac carousel (07): 35 likes after 3 weeks
-- Black Friday carousel (05): 20 likes after 1 day; MERRY FITMAS reel (04): 11 likes after 18 hours - younger posts are not directly comparable
-- comments on the GTA post react to the trend itself ('Hehehe it's time 🔥 GTA', 'Znači ipak dobro dođe AI')
+- Retro neon ilustracija (01_gta_trend.png): 2.147 lajkova nakon 7 dana – daleko najviše od vidljivih objava; to je kolaboracija gymbeamhr i zanamari, pa doseg dijelom dolazi i s njezina profila.
+- FOOD10 carousel (06_food10_carousel.png): 116 lajkova, objavljen 9. studenoga (~2 tjedna) – najbolji među vidljivim objavama samog brenda bez kolaboracije.
+- Horoskopski carousel (07_horoscope_carousel.png): 35 lajkova nakon ~3 tjedna – usprkos 13 slajdova i dijeljivom konceptu, slab rezultat u lajkovima (spremanja i dijeljenja nisu vidljiva).
+- Black Friday carousel (05_black_friday.png): 20 lajkova nakon 1 dana – još nije usporediv s tjednima starim objavama.
+- MERRY FITMAS reel (04_merry_fitmas_reel.png): 11 lajkova nakon 18 sati – premlad za usporedbu; za reelse su pregledi relevantniji od lajkova, a nisu vidljivi.
+- Komentari na trend-ilustraciji su uglavnom emojiji i reakcije na trend ("Hehehe it's time 🔥🔥🔥 GTA"), uz jedan koji primjećuje AI ("Znaci ipak dobro dođe AI 😋").
+- Kolaboracija zanamari (08_zanamari_collab.png): broj lajkova nije vidljiv, komentari su ograničeni.
 
 ## Verified (with source)
-- @gymbeamhr has 7,818 posts and 42.2K followers; bio: 'Europe's largest one-stop shop for every sport', 'More than 10,000 products in stock' — _02_profile_grid_full.png_
-- Story highlights: Community, News, Articles, Recipes, Outfits, GymBeam App, YouTube — _02_profile_grid_full.png_
-- GTA-style illustration posted as a collaboration with @zanamari, caption 'Happy long weekend! 😎', hashtags #gtavi #gta6, 2,147 likes — _01_gta_trend.png_
-- Current holiday collection (gingerbread, eggnog and marzipan nut butters; granola; ginger shot) and the MERRY FITMAS advent calendar with 24 surprises — _04_merry_fitmas_reel.png_
-- Educational/entertainment carousel uses a dark grid background, cream + orange headline, '01 / 13' numbering and a 'find your sign →' CTA — _07_horoscope_carousel.png_
-- Creatine monohydrate appears as the hero of creative visuals (Trick or treat, angel wings) — _02_profile_grid_full.png_
-- 100% Creatine - GymBeam: 5 g creatine monohydrate per daily dose (1 scoop); can be taken at any time of day; daily consistency matters more than timing — _https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html_
-- 100% Creatine - GymBeam is formulated to increase performance during short, repeated intervals of intense exercise; unisex product; do not exceed 5 g per day — _https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html_
-- Just Whey: whey protein from grass-fed cows' milk, made in Germany, 22.5 g protein per 30 g scoop (description says 'at least 22 g'), 6.5 g BCAA per serving, DigeZyme® enzymes, blend of concentrate, isolate and hydrolysate — _https://gymbeam.hr/protein-just-whey-gymbeam.html_
-- Just Whey: mix 1 scoop (30 g) with 200-300 ml water or milk; 2.2 g sugar per serving; not lactose-free — _https://gymbeam.hr/protein-just-whey-gymbeam.html_
+- Profil @gymbeamhr ima 7.818 objava, 42,2 tis. pratitelja i prati 33 profila; verificiran je. — _02_profile_grid_full.png_
+- Bio navodi "Najveći europski one-stop shop za svaki sport" i "Više od 10.000 proizvoda na zalihi"; kategorije Prehrana, Oprema, Odjeća. — _02_profile_grid_full.png_
+- Istaknute priče: Zajednica, Novosti, Članci, Recepti, Outfiti, GymBeam App, YouTube. — _02_profile_grid_full.png_
+- Retro neon ilustracija je zajednička objava gymbeamhr i zanamari s opisom "Sretan produženi vikend! 😎" i hashtagovima #gymbeamhr #gbmotivation #gbig #gta #gtavi #gta6; 2.147 lajkova, objavljena prije 7 dana. — _01_gta_trend.png_
+- Blagdanska kolekcija uključuje kikiriki maslac s okusom medenjaka, maslac od indijskih oraščića s okusom eggnoga, maslac od badema s okusom marcipana i tamne čokolade, visokoproteinsku granolu s medenjakom, medom i cimetom te ginger shot s narančom i zimskim začinima. — _04_merry_fitmas_reel.png_
+- GymBeam MERRY FITMAS adventski kalendar sadrži 24 mala iznenađenja do Božića. — _04_merry_fitmas_reel.png_
+- Black Friday objava je carousel (3 slajda) s Thor + Vitargo proizvodima, Protein Purebar pločicama i GymBeam šejkerom; 20 lajkova nakon 1 dana. — _05_black_friday.png_
+- Kod FOOD10 daje 10% popusta na kategoriju zdrave hrane; carousel s Jammy Spread (jagoda) i Peanut Butter, 116 lajkova, objavljen 9. studenoga. — _06_food10_carousel.png_
+- Carousel "Horoskopski znakovi kao GymBeam proizvodi" ima 13 slajdova, opis "Pošaljite osobi koju smo pogodili." i 35 lajkova (objavljen 6. studenoga). — _07_horoscope_carousel.png_
+- Influencerica zanamari u objavi navodi kod ZANAMARI5 i "GymBeam BLACK FRIDAY s popustima do 80%"; nosi GymBeam Athletic Club majicu i drži ružičastu GymBeam termos-čašu. — _08_zanamari_collab.png_
+- Na profilu postoji suradnja GymBeam x BOX NOW s porukom "Uživajte u besplatnoj dostavi s BOX NOW". — _03_profile_grid_recent.png_
+- 100% Kreatin monohidrat: preporučena dnevna doza 5 g (jedna mjerica) u 250 ml vode, jednom dnevno, ne prekoračiti 5 g. — _https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html_
+- Kreatin se može uzimati u bilo koje doba dana; dosljednost u svakodnevnom uzimanju važnija je od vremena uzimanja. — _https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html_
+- Kreatin je uniseks proizvod namijenjen povećanju izvedbe kod kratkotrajnih, intenzivnih intervala vježbanja. — _https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html_
+- Just Whey: protein sirutke od krava s pašne ispaše, proizveden u Njemačkoj; 22,5 g proteina po mjerici od 30 g; mješavina koncentrata, izolata i hidrolizata; DigeZyme® kompleks enzima; laboratorijski ispitan. — _https://gymbeam.hr/protein-just-whey-gymbeam.html_
+- Just Whey se priprema s 200–300 ml vode (ili mlijeka za kremastiju teksturu); maksimalna dnevna doza 90 g (tri mjerice); nije proizvod bez laktoze. — _https://gymbeam.hr/protein-just-whey-gymbeam.html_
 
 ## Assumptions (not verified)
-- The audience is mostly 18-35 with a strong female share (inferred from creator choice and #gbwomen, not confirmed by data)
-- The GTA post's engagement is partly driven by current GTA VI interest and @zanamari's reach, not only by the style
-- Brand orange is approximately #FA762B (measured from a screenshot, not from official brand guidelines)
-- Graphic posts without people get less organic reach than creator reels
+- Visok rezultat retro neon objave vjerojatno je kombinacija trenutačnog hypea oko najavljene igre, kolaboracije s influenceričinim profilom i neobičnog ilustrativnog stila u feedu – ne može se pripisati samo stilu.
+- Publika je vjerojatno pretežno ženska i u dobi 18–30, sudeći po influencericama, outfitima i #gbwomen, ali demografski podaci nisu vidljivi.
+- Horoskopski carousel vjerojatno ima više spremanja/dijeljenja nego što lajkovi sugeriraju, no to nije provjerljivo iz screenshotova.
+- Kreatin monohidrat je očito jedan od glavnih proizvoda u komunikaciji (više stiliziranih objava samo s njim), no njegova prodajna važnost nije provjerena.
+- Brend vjerojatno koristi AI-generirane ilustracije za trend sadržaj (na to upućuje komentar publike), što publika prihvaća bez negativnih reakcija u vidljivim komentarima.
+- Kratki opisi uz Black Friday upućuju da je glavna poruka u vizualu i priči/linku, a ne u opisu.
 
 ## Unavailable sources
-- Instagram was not scraped (login wall and terms of use); the analysis uses 8 manually saved screenshots
-- No reach, saves or shares data (Instagram Insights not available)
-- Official brand guidelines (fonts, exact colours) are not public
+- Instagram nije automatski preuzet (login zid i uvjeti korištenja); analiza se temelji na ručno spremljenim screenshotovima.
+- Broj pregleda reelsa, spremanja, dijeljenja i doseg nisu vidljivi.
+- Opisi i lajkovi većine objava u gridu nisu vidljivi, pa prosjek profila nije izračunljiv.
+- Broj lajkova kolaboracije zanamari (08_zanamari_collab.png) nije prikazan.
 
 ## Opportunities
-- Follow up the GTA / retro neon trend with the real product in frame: the original has no product and does not lead to a purchase
-- A save-worthy creatine carousel in their proven template (dark grid, orange accent): creatine is a frequent topic, but fact-based education from the webshop data is almost absent
-- A Just Whey product post in the holiday context, using webshop facts instead of generic claims
-- More posts that carry 'trend' energy without needing a creator
+- Nastavak retro neon / Miami trenda bez ljudi: stvarno pakiranje kreatina ili Just Wheyja kao junak scene (neonsko svjetlo, palme, zalazak), ali s blagdanskim detaljima – spaja najuspješniji vizual s aktualnom MERRY FITMAS sezonom.
+- Edukativni carousel o kreatinu za spremanja: 5 g dnevno, vrijeme uzimanja nije bitno, dosljednost je ključna, uniseks proizvod – sve iz provjerenih FAQ odgovora; profil trenutačno nema vidljiv čisti edukativni sadržaj o kreatinu.
+- Just Whey gotovo je nevidljiv u feedu – samostalni product showcase s provjerenim brojkama (22,5 g proteina po mjerici, grass-fed, DigeZyme®) bez izmišljenih cijena i popusta.
+- Format "mitovi vs. činjenice" (npr. vrijeme uzimanja kreatina) u stilu horoskopskog carousela – tamna rešetka, condensed naslov, narančasti naglasci – ali s jasnijom korisnom vrijednošću za spremanje.
+- Stilizirane objave samo s proizvodom (kao kreatin s krilima ili Halloween medenjak) rade s brendom bez oslanjanja na influencere – mogu se proširiti u seriju sezonskih "scena" s proizvodom.
+- Reel s izazovom ili pitanjem za komentare ("Koji si ti proizvod?" / glasanje 1-2-3) za poticanje komentara, oslanjajući se na već prisutan obrazac CTA-a s brojevima.

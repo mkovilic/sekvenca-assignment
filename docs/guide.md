@@ -7,7 +7,7 @@
 
 1. Install [uv](https://docs.astral.sh/uv/). Run `cp .env.example .env` and add `OPENAI_API_KEY`, then run `uv sync`.
 2. `uv run recept run --brief inputs/brief.yaml --run my-run`. Leave out `--brief` to get the interactive briefing.
-3. The judgement steps run either through **Claude Code** (`provider: agent`, the default, no LLM API cost) or through the **Claude API** (`provider: anthropic`). In agent mode, open Claude Code in the folder and paste the one-line starting prompt from the README. Claude Code runs the program, answers the tasks it writes to `runs/<id>/agent/` and reruns it. The program also prints this prompt whenever it stops. Do not paste the files from `prompts/` by hand.
+3. The judgement steps run either through **Claude Code** (`provider: agent`, the default, no LLM API cost) or through the **Claude API** (`provider: anthropic`). In agent mode, open Claude Code in the folder and paste the starting prompt from `RECEPT.md`. Claude Code answers the tasks the program writes to `runs/<id>/agent/` and reruns the command.
 4. **Human steps:** approve the plan before images are generated, and approve the finished frames before delivery. Both gates are skipped with `--yes`.
 
 Settings are in `config.yaml`: models, image quality, sizes, brand colours and fonts, QA threshold and number of retries. Docker: see the README.
@@ -40,7 +40,7 @@ QA scores every frame (product accuracy, stray text and people, legibility, bran
 **What can vary on a rerun:** the scenes and the exact wording. **What should not vary:** the labels (always the real packshot), the facts, the colours, the fonts and the structure.
 **Limitations:** Instagram is not scraped (login wall and terms of use), so screenshots are added by hand and no reach or saves data is available. The font is a close free substitute (Anton/Montserrat). The photo-on-illustration mix is a stylistic compromise. In agent mode the judgement steps depend on the agent model's quality.
 
-**Time:** active work ⟨FILL IN⟩ h · waiting for generation ~5 min (6 images + 2 retries, ~30 s each) · AI cost **$0.33** (OpenAI images; the judgement steps ran in Claude Code).
+**Time:** active work 3 h · waiting for generation ~5 min (6 images + 2 retries, ~30 s each) · AI cost **$0.33** (OpenAI images; the judgement steps ran in Claude Code).
 
 **My own refinement of an AI suggestion:** ⟨CONFIRM/EDIT — The AI proposed a generic "retro neon Miami" post and avoided the GTA reference over IP concerns. I found that GymBeam had posted exactly that style a week earlier, and that it was their best-performing post. So I changed the concept to a direct follow-up: same aesthetic, the real product added (their post had none), no people, and a holiday twist.⟩
 

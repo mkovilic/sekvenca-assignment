@@ -1,32 +1,35 @@
 # Post 1
 
 **Format:** carousel
-**Goal:** Education -> saves and shares
-**Concept:** 'Creatine, no nonsense': 6 slides in the brand's proven template (dark grid, cream + orange headline, page numbers), one webshop fact per slide. Product on the first and last slide.
+**Goal:** Edukacija -> spremanja i dijeljenja
+**Concept:** "Kreatin bez mudrovanja": 4 najčešća pitanja o kreatinu, svako na jednom slajdu, s kratkim odgovorom iz službenih FAQ podataka. Tamni brendirani predložak kao horoskopski carousel, narančasti naglasci, stvarno pakiranje 100% Kreatina na naslovnom i završnom slajdu.
 
 ## Rationale
-The zodiac carousel shows the brand already uses this template for save-worthy content, and creatine is a recurring hero of their feed. Education built only on official product data builds trust and gives a reason to save without inventing claims.
+Analiza pokazuje da profil nema vidljiv čisti edukativni sadržaj o kreatinu, iako je kreatin stalni 'junak' stiliziranih objava. Horoskopski carousel (07) je brendov vlastiti edukativni predložak (tamna podloga, condensed naslov, narančasta ključna riječ), ali je donio malo lajkova jer je zabavan, a ne koristan – ovaj carousel zadržava vizualni jezik i daje razlog za spremanje. Pitanje-odgovor format potiče dijeljenje ('pošalji prijatelju koji stalno pita').
 
 ## Facts used
-- Recommended daily dose is 5 g, one scoop; do not exceed 5 g per day
-- Can be taken at any time of day; daily consistency matters more than timing
-- Formulated to increase performance during short, repeated intervals of intense exercise
-- Unisex product with the same primary goal of supporting performance
+- Preporučena dnevna doza za GymBeam 100% Creatine Monohydrate je 5 grama. To odgovara jednoj mjerici praha, koju treba pomiješati s 250 ml vode.
+- Savjetuje se uzimanje jedne doze dnevno. Nemojte prekoračiti maksimalnu dnevnu dozu od 5 g.
+- može se uzimati u bilo koje doba dana, jer je vrijeme uzimanja fleksibilno
+- dosljednost u svakodnevnom uzimanju važnija je od određenog vremena
+- GymBeam 100% Creatine Monohydrate je uniseks proizvod
+- formuliran za povećanje izvedbe tijekom kratkotrajnih, uzastopnih intervala intenzivnog vježbanja
+- Namijenjen je sportašima i aktivnim pojedincima čiji je primarni cilj poboljšanje izvedbe tijekom treninga snage ili sličnih aktivnosti visokog intenziteta.
 
 ## Sources
 - Instagram: https://www.instagram.com/gymbeamhr/
 - 100% Kreatin - GymBeam: https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html
 
 ## Alt text
-Six-slide carousel on a dark grid background with bold cream and orange headlines and the GymBeam 100% Creatine Monohydrate pouch on the first and last slide.
+Carousel na tamnoj podlozi s rešetkom: narančasto pakiranje GymBeam Creatine Monohydrate i kratki odgovori na četiri pitanja o kreatinu.
 
 ## Quality check
-- frame 1: score 8/10, attempts 1 — Product sits on the plain dark card without a ground shadow, slightly floating
-- frame 2: score 8/10, attempts 1 — Lower half of the slide is empty; acceptable for a text-led template
-- frame 3: score 8/10, attempts 1 — Lower half of the slide is empty; acceptable for a text-led template
-- frame 4: score 8/10, attempts 1 — Lower half of the slide is empty; acceptable for a text-led template
-- frame 5: score 8/10, attempts 1 — Lower half of the slide is empty; acceptable for a text-led template
-- frame 6: score 8/10, attempts 1
+- frame 1: score 9/10, attempts 1 — Product is the real packshot, label exact; sits on a flat dark card without a floor shadow, acceptable for this flat template.
+- frame 2: score 9/10, attempts 1
+- frame 3: score 9/10, attempts 1
+- frame 4: score 9/10, attempts 1
+- frame 5: score 9/10, attempts 1
+- frame 6: score 9/10, attempts 1 — Same packshot treatment as slide 1; no issues.
 
 _No people. Backgrounds generated with OpenAI; the product is the real webshop packshot composited by code
 (except frames marked `ai_edit` in the plan). On-image text is rendered by code in a font close to the brand's._

@@ -1,80 +1,71 @@
 {
   "calls": [
     {
-      "time": "2026-11-27T13:38:25",
+      "time": "2026-11-27T16:10:25",
       "phase": "produce",
       "model": "gpt-image-2.5-sunburst",
-      "text_in": 148,
+      "text_in": 238,
       "image_in": 0,
       "image_out": 1587,
-      "usd": 0.04835
+      "usd": 0.0488
     },
     {
-      "time": "2026-11-27T13:38:55",
+      "time": "2026-11-27T16:10:58",
       "phase": "produce",
       "model": "gpt-image-2.5-sunburst",
-      "text_in": 114,
+      "text_in": 157,
       "image_in": 0,
       "image_out": 1331,
-      "usd": 0.0405
+      "usd": 0.04072
     },
     {
-      "time": "2026-11-27T13:39:22",
+      "time": "2026-11-27T16:11:27",
       "phase": "produce",
       "model": "gpt-image-2.5-sunburst",
-      "text_in": 143,
-      "image_in": 0,
-      "image_out": 1331,
-      "usd": 0.04065
-    },
-    {
-      "time": "2026-11-27T13:39:53",
-      "phase": "produce",
-      "model": "gpt-image-2.5-sunburst",
-      "text_in": 107,
-      "image_in": 0,
-      "image_out": 1331,
-      "usd": 0.04047
-    },
-    {
-      "time": "2026-11-27T13:40:20",
-      "phase": "produce",
-      "model": "gpt-image-2.5-sunburst",
-      "text_in": 143,
+      "text_in": 145,
       "image_in": 0,
       "image_out": 1331,
       "usd": 0.04065
     },
     {
-      "time": "2026-11-27T13:40:46",
+      "time": "2026-11-27T16:11:58",
       "phase": "produce",
       "model": "gpt-image-2.5-sunburst",
-      "text_in": 112,
-      "image_in": 0,
-      "image_out": 1331,
-      "usd": 0.04049
-    },
-    {
-      "time": "2026-11-27T13:42:48",
-      "phase": "produce",
-      "model": "gpt-image-2.5-sunburst",
-      "text_in": 187,
+      "text_in": 186,
       "image_in": 0,
       "image_out": 1331,
       "usd": 0.04086
     },
     {
-      "time": "2026-11-27T13:43:19",
+      "time": "2026-11-27T16:12:31",
       "phase": "produce",
       "model": "gpt-image-2.5-sunburst",
-      "text_in": 187,
+      "text_in": 200,
       "image_in": 0,
       "image_out": 1331,
-      "usd": 0.04086
+      "usd": 0.04093
+    },
+    {
+      "time": "2026-11-27T16:13:03",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 145,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.04065
+    },
+    {
+      "time": "2026-11-27T16:13:32",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 188,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.04087
     }
   ],
-  "total_usd": 0.3328,
+  "total_usd": 0.2935,
   "by_phase": {
-    "produce": 0.333
+    "produce": 0.2934
   }
 }
