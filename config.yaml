@@ -1,0 +1,40 @@
+# Sve postavke recepta na jednom mjestu. Ključevi su u .env, ne ovdje.
+
+models:
+  # Analiza brenda, plan sadržaja i vizualna provjera kvalitete
+  reasoning: claude-opus-5-5
+  reasoning_effort: high
+  # Captioni (kraći, jeftiniji zadatak)
+  copy: claude-sonnet-5-5
+  copy_effort: medium
+  # Generiranje i uređivanje slika
+  image: gpt-image-2.5-sunburst
+  image_quality: high
+
+# Cijene za izračun troška (USD po 1M tokena). Provjeri prije predaje.
+pricing:
+  claude-opus-5-5: {input: 4.00, output: 20.00}
+  claude-sonnet-5-5: {input: 2.00, output: 10.00}
+  gpt-image-2.5-sunburst: {text_input: 5.00, image_input: 8.00, image_output: 30.00}
+
+formats:
+  feed: {width: 1080, height: 1350, gen_size: "1088x1360"}   # 4:5
+  reel: {width: 1080, height: 1920, gen_size: "1088x1936"}   # 9:16
+  reel_seconds_per_frame: 2.6
+  reel_fps: 30
+
+brand_style:
+  # Popunjava se iz analize; ovo su sigurne zadane vrijednosti (provjerene na @gymbeamhr)
+  primary: "#FF5A1F"
+  dark: "#141414"
+  light: "#F5EFE6"
+  headline_font: assets/fonts/Anton-Regular.ttf
+  body_font: assets/fonts/Montserrat-VF.ttf
+
+qa:
+  max_retries: 2          # koliko puta se slika ponovno generira ako padne provjeru
+  min_score: 7            # 1-10, ispod toga slika pada
+
+scrape:
+  user_agent: "Mozilla/5.0 (recept-bot; demo)"
+  timeout_s: 30

@@ -1,0 +1,46 @@
+# Ulazni brif za demonstraciju (ekvivalent odgovora na interaktivni brifing).
+# Pokretanje bez pitanja: uv run recept run --brief inputs/brief.yaml
+
+brand: GymBeam Hrvatska
+instagram: https://www.instagram.com/gymbeamhr/
+website: https://gymbeam.hr/
+why_this_brand: >
+  Preporučeni brend iz zadatka; velik vlastiti asortiman (proizvodi s vlastitom etiketom, pa nema
+  tuđih zaštićenih brendova na slikama), aktivan i raznolik Instagram s jasnim vizualnim identitetom
+  (narančasta + tamna pozadina) i sklonošću trend sadržaju.
+
+products:
+  - url: https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html
+    note: kreatin monohidrat, čest "heroj" njihovih objava
+    packshot: creatine-monohydrate-unflavoured-mockup-view1_5
+  - url: https://gymbeam.hr/protein-just-whey-gymbeam.html
+    note: glavni GymBeam whey u HR trgovini (True Whey se u HR ne prodaje)
+    packshot: just_whey_chocolate_milkshake_1_kg_gymbeam_1
+
+audience: >
+  Hrvatska, 18-35, rekreativci i teretana-entuzijasti koji tek ulaze u suplementaciju ili traže
+  provjerenu, cjenovno pristupačnu opciju. Prate fitness influencere, vole humor i trendove.
+
+goals:
+  - "Objava 1: edukacija -> spremanja i dijeljenja (karusel)"
+  - "Objava 2: predstavljanje proizvoda -> interes za kupnju (jedna slika)"
+  - "Objava 3: trend/zabava -> reakcije i komentari (reel)"
+
+preferred_formats: [carousel, image, reel]
+
+inspiration: >
+  Njihova vlastita objava u retro neon / Miami ilustracijskom stilu (inputs/instagram/01_gta_trend.png,
+  2.147 lajkova, daleko iznad prosjeka profila) - želimo nastavak tog trenda, ali s pravim proizvodom
+  u kadru i bez osoba. Edukativni karuseli u stilu "Horoskopski znakovi kao GymBeam proizvodi".
+
+season: "Prosinac 2026 - blagdanska sezona (adventski kalendar MERRY FITMAS je aktualan na profilu)."
+
+constraints:
+  - Bez osoba na slikama.
+  - Ne izmišljati cijene, popuste, kodove, svojstva ni izjave stvarnih osoba.
+  - Logo, pakiranje i etiketa moraju ostati točni.
+  - Bez oznaka, logotipa ili fontova videoigara (stil smije biti inspiriran žanrom, ne kopija).
+
+language: hr
+
+references_dir: inputs/instagram

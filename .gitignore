@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+runs/
+.pytest_cache/
+# Employer's task document — not ours to redistribute
+docs/Zadatak_AI_recept.pdf
