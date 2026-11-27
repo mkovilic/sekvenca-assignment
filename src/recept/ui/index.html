@@ -103,7 +103,21 @@ ul.keys { margin: 6px 0; padding-left: 18px; color: var(--muted); font-size: 12p
 <script>
 const PHASES = ["brief", "ingest", "analysis", "plan", "produce", "deliver"];
 const ACTION_NAMES = { create: "Brief → plan", plan: "Brief → plan", produce: "Image production + QA", deliver: "Delivery", regen: "Regenerating frame" };
-let current = null, detail = null, tab = "posts", autoResume = true, resumedFor = null;
+let current = null, detail = null, tab = "posts", autoResume = true, resumedFor = null, modes = null;
+const MODE_NAMES = { claude: "Claude Code (automatic)", manual: "Claude Code (I paste the prompt)", api: "Claude API" };
+function getMode() {
+  let m = null; try { m = localStorage.getItem("recept-mode"); } catch (e) {}
+  if (modes && m && modes[m]) return m;
+  return modes && modes.claude ? "claude" : modes && modes.api ? "api" : "manual";
+}
+function setMode(m) { try { localStorage.setItem("recept-mode", m); } catch (e) {} }
+function modeSelect() {
+  if (!modes) return "";
+  return `<label class="muted" style="font-size:13px">Judgement steps:
+    <select onchange="setMode(this.value)" style="font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:3px 6px;margin-left:4px">
+    ${Object.keys(MODE_NAMES).filter((k) => modes[k]).map((k) => `<option value="${k}" ${k === getMode() ? "selected" : ""}>${MODE_NAMES[k]}</option>`).join("")}
+    </select></label>`;
+}
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -142,12 +156,12 @@ async function showNew() {
       <label class="muted">Brief (YAML)</label>
       <textarea id="newbrief" rows="26" style="margin-top:4px">${esc(tpl)}</textarea>
       <div class="row" style="margin-top:12px"><button class="primary" onclick="createRun()">Start: brief → analysis → plan</button>
-      <span class="muted">No image costs in this step.</span></div>
+      <span class="muted">No image costs in this step.</span><span style="flex:1"></span>${modeSelect()}</div>
     </div>`;
 }
 async function createRun() {
   const id = $("#newid").value.trim();
-  try { await api(`/api/runs/${encodeURIComponent(id)}/create`, { brief_yaml: $("#newbrief").value }); openRun(id); }
+  try { await api(`/api/runs/${encodeURIComponent(id)}/create`, { brief_yaml: $("#newbrief").value, mode: getMode() }); openRun(id); }
   catch (e) { toast(e.message, 6000); }
 }
 
@@ -159,7 +173,7 @@ async function openRun(id) {
 
 async function act(action, body = {}, confirmMsg) {
   if (confirmMsg && !confirm(confirmMsg)) return;
-  try { await api(`/api/runs/${encodeURIComponent(current)}/${action}`, body); resumedFor = null; await refresh(true); loadRuns(); }
+  try { await api(`/api/runs/${encodeURIComponent(current)}/${action}`, { ...body, mode: getMode() }); resumedFor = null; await refresh(true); loadRuns(); }
   catch (e) { toast(e.message, 6000); }
 }
 
@@ -170,10 +184,14 @@ function resumeAction(d) {
 
 function nextAction(d) {
   const j = d.job, ph = d.phases, running = j && j.running;
-  if (running) return `<div class="card"><div class="row"><span class="spin"></span><b>${ACTION_NAMES[j.action] || j.action}…</b></div>
+  if (running) return `<div class="card"><div class="row"><span class="spin"></span><b>${j.phase === "agent" ? "Claude Code is working on the judgement tasks…" : (ACTION_NAMES[j.action] || j.action) + "…"}</b>
+    ${j.phase === "agent" ? '<span class="muted">analysis, plan, captions and QA take a minute or two each</span>' : ""}</div>
     <pre class="console" id="console">${esc(j.lines.join("\n"))}</pre></div>`;
+  if (d.pending.length && j && j.mode === "claude" && j.code === 3) return `<div class="card error"><h2>Claude Code could not finish ${d.pending.length} task(s)</h2>
+    <pre class="console">${esc(j.lines.filter((l) => l.startsWith("[claude]")).slice(-12).join(String.fromCharCode(10)))}</pre>
+    <div class="row" style="margin-top:10px"><button class="primary" onclick="act('${resumeAction(d)}')">Retry</button></div></div>`;
   if (d.pending.length) {
-    const auto = d.provider === "agent";
+    const auto = !j || j.mode !== "api";
     return `<div class="card action"><h2>Waiting for the agent: ${d.pending.length} task(s)</h2>
       <p class="muted">Judgement steps (analysis, plan, captions, QA) run in <b>Claude Code</b>. Open Claude Code in the project folder and paste:</p>
       <code class="prompt">${esc(d.agent_prompt)}</code>
@@ -253,7 +271,7 @@ function render() {
   if (keepPlan) { $("#next").innerHTML = nextAction(d); return; }
   $("#main").innerHTML = `
     <div class="row" style="justify-content:space-between"><div><h1>${esc(d.id)}</h1>
-      <div class="muted">LLM: ${d.provider === "agent" ? "Claude Code (agent mode)" : "Claude API"} · images: OpenAI · AI cost so far $${d.cost.toFixed(2)}</div></div></div>
+      <div class="muted">Images: OpenAI · AI cost so far $${d.cost.toFixed(2)}</div></div>${modeSelect()}</div>
     <div class="stepper">${PHASES.map((p, i) => `<span class="step ${d.phases[p] ? "done" : i === doneIdx ? "current" : ""}">${p}</span>`).join("")}</div>
     <div id="next">${nextAction(d)}</div>
     <div class="tabs">${["posts", "plan", "analysis", "brief", "log"].map((t) => `<button class="tab ${t === tab ? "active" : ""}" onclick="tab='${t}';render()">${t[0].toUpperCase() + t.slice(1)}</button>`).join("")}</div>
@@ -269,7 +287,7 @@ async function refresh(force = false) {
     const sig = JSON.stringify(d);
     detail = d;
     if (force || sig !== lastSig) { lastSig = sig; render(); }
-    if (autoResume && d.provider === "agent" && d.job && d.job.code === 3 && !d.pending.length && resumedFor !== d.job.id) {
+    if (autoResume && d.job && d.job.mode === "manual" && d.job.code === 3 && !d.pending.length && resumedFor !== d.job.id) {
       resumedFor = d.job.id; act(resumeAction(d));
     }
   } catch (e) { toast(e.message); }
@@ -277,6 +295,7 @@ async function refresh(force = false) {
 
 setInterval(refresh, 2000);
 setInterval(loadRuns, 5000);
+api("/api/modes").then((m) => { modes = m; if (detail) render(); });
 loadRuns();
 if (location.hash.length > 1) openRun(decodeURIComponent(location.hash.slice(1)));
 </script>

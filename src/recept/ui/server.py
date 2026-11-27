@@ -19,6 +19,7 @@ from urllib.parse import unquote, urlparse
 import markdown
 from pydantic import ValidationError
 
+from ..agent_runner import answer_all, claude_path
 from ..config import ROOT, load_config
 from ..schemas import ContentPlan
 
@@ -28,26 +29,53 @@ ID_OK = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_")
 
 
 class Job:
-    def __init__(self, run_id: str, action: str, cmd: list[str]):
-        self.run_id, self.action, self.cmd = run_id, action, cmd
+    """One UI step. In mode "claude" it loops: run the CLI, answer agent tasks with Claude Code, rerun."""
+
+    def __init__(self, run_id: str, action: str, cmd: list[str], mode: str):
+        self.run_id, self.action, self.cmd, self.mode = run_id, action, cmd, mode
         self.lines: list[str] = []
         self.code: int | None = None
+        self.phase = "running"
         self.started = time.time()
-        env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1"}
-        self.proc = subprocess.Popen(
-            cmd, cwd=ROOT, env=env, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        threading.Thread(target=self._loop, daemon=True).start()
+
+    def log(self, line: str) -> None:
+        self.lines.append(line)
+
+    def _cli(self) -> int:
+        env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1",
+               "RECEPT_PROVIDER": "anthropic" if self.mode == "api" else "agent"}
+        proc = subprocess.Popen(
+            self.cmd, cwd=ROOT, env=env, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
             text=True, encoding="utf-8", errors="replace",
         )
-        threading.Thread(target=self._read, daemon=True).start()
+        assert proc.stdout
+        for line in proc.stdout:
+            self.log(line.rstrip())
+        return proc.wait()
 
-    def _read(self) -> None:
-        assert self.proc.stdout
-        for line in self.proc.stdout:
-            self.lines.append(line.rstrip("\n"))
-        self.code = self.proc.wait()
+    def _loop(self) -> None:
+        try:
+            for _ in range(12):
+                self.phase = "running"
+                code = self._cli()
+                if code != 3 or self.mode != "claude":
+                    self.code = code
+                    return
+                self.phase = "agent"
+                if not answer_all(RUNS / self.run_id / "agent", self.log):
+                    self.log("[claude] some tasks could not be answered; see above. Retry or answer them manually.")
+                    self.code = 3
+                    return
+                self.log("[claude] all tasks answered, continuing")
+            self.code = 1
+        except Exception as e:
+            self.log(f"error: {e}")
+            self.code = 1
 
     def state(self) -> dict:
-        return {"id": self.started, "action": self.action, "running": self.code is None, "code": self.code, "lines": self.lines[-300:]}
+        return {"id": self.started, "action": self.action, "mode": self.mode, "phase": self.phase,
+                "running": self.code is None, "code": self.code, "lines": self.lines[-300:]}
 
 
 JOBS: dict[str, Job] = {}
@@ -158,6 +186,7 @@ def run_detail(run_id: str) -> dict:
     return {
         "id": run_id,
         "provider": cfg["models"].get("provider", "agent"),
+        "modes": _modes(),
         "phases": _phases(d),
         "pending": _pending(d),
         "job": job.state() if job else None,
@@ -171,6 +200,10 @@ def run_detail(run_id: str) -> dict:
         "agent_prompt": f"Read RECEPT.md and continue the recipe run {run_id}. Do every agent task yourself, "
                         "stop for my approval after the plan and before delivery.",
     }
+
+
+def _modes() -> dict:
+    return {"claude": bool(claude_path()), "manual": True, "api": bool(os.getenv("ANTHROPIC_API_KEY"))}
 
 
 def start(run_id: str, action: str, body: dict) -> None:
@@ -198,7 +231,10 @@ def start(run_id: str, action: str, body: dict) -> None:
         cmd = _cli("--run", run_id, "--from", "produce", "--to", "produce", "--yes")
     else:
         raise ValueError(f"Unknown action {action}")
-    JOBS[run_id] = Job(run_id, action, cmd)
+    mode = body.get("mode") or ("claude" if claude_path() else "manual")
+    if not _modes().get(mode):
+        raise ValueError(f"Mode '{mode}' is not available on this machine.")
+    JOBS[run_id] = Job(run_id, action, cmd, mode)
 
 
 def _forget_frame(d: Path, post: int, frame: int) -> None:
@@ -244,6 +280,8 @@ class Handler(BaseHTTPRequestHandler):
                 self._json({"runs": run_list()})
             elif path.startswith("/api/runs/"):
                 self._json(run_detail(path.split("/")[3]))
+            elif path == "/api/modes":
+                self._json(_modes())
             elif path == "/api/brief-template":
                 self._send(200, (ROOT / "inputs" / "brief.yaml").read_bytes(), "text/plain; charset=utf-8")
             elif path.startswith("/files/"):
@@ -281,6 +319,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def serve(port: int = 8765, open_browser: bool = True) -> None:
+    load_config()
     srv = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     url = f"http://127.0.0.1:{port}/"
     print(f"recept UI on {url}  (Ctrl+C to stop)")

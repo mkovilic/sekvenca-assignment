@@ -40,9 +40,10 @@ uv run recept run --brief inputs/brief.yaml --run my-run
 
 Image generation always uses the OpenAI API (`gpt-image-2.5-sunburst`). The demo run cost **$0.33** (see `costs.json`).
 
-**Web UI:** `uv run recept ui` opens a local page (http://127.0.0.1:8765) where you write the brief, run each step,
-edit and approve the plan, review every frame with its QA score, regenerate single frames and approve delivery.
-It runs the same CLI underneath. In agent mode it shows the Claude Code prompt and continues on its own once the answers appear.
+**Web UI (everything from the browser):** `uv run recept ui` opens http://127.0.0.1:8765. Write the brief, then the UI
+runs every step. It calls Claude Code headless (`claude -p`, uses your Claude Code login, no API key) for the judgement tasks
+and continues on its own. It stops only at the two approvals: edit and approve the plan, review every frame with its QA score,
+regenerate single frames, approve delivery. The selector in the header switches to the Claude API or to pasting the prompt yourself.
 
 Useful flags: `--latest` (resume the last run), `--from <phase>` / `--to <phase>`, `--only-post N`, `--yes` (skip approval gates).
 Without `--brief` the program runs an interactive briefing.

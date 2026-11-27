@@ -10,7 +10,7 @@
 3. The judgement steps run either through **Claude Code** (`provider: agent`, the default, no LLM API cost) or through the **Claude API** (`provider: anthropic`). In agent mode, open Claude Code in the folder and paste the starting prompt from `RECEPT.md`. Claude Code answers the tasks the program writes to `runs/<id>/agent/` and reruns the command.
 4. **Human steps:** approve the plan before images are generated, and approve the finished frames before delivery. Both gates are skipped with `--yes`.
 
-5. **Web UI** (optional): `uv run recept ui` covers the same steps in the browser: brief, plan editing and approval, frames with QA scores, regenerating a single frame, delivery.
+5. **Web UI** (simplest): `uv run recept ui`. Everything runs from the browser: the UI calls Claude Code headless for the judgement tasks and stops only at the two approvals (plan editing, frames with QA scores, regenerating a single frame, delivery).
 
 Settings are in `config.yaml`: models, image quality, sizes, brand colours and fonts, QA threshold and number of retries. Docker: see the README.
 
