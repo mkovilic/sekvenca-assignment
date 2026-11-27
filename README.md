@@ -14,43 +14,51 @@ Instructions and the write-up are in [`docs/guide.pdf`](docs/guide.pdf).
 
 ## Quick start
 
+Needs [uv](https://docs.astral.sh/uv/) (it installs Python 3.12) and an OpenAI API key.
+
 ```bash
-# needs uv (https://docs.astral.sh/uv/); Python 3.12 is installed by uv
 cp .env.example .env          # add OPENAI_API_KEY
 uv sync
+uv run recept ui              # opens http://127.0.0.1:8765
 ```
 
-The judgement steps (analysis, plan, captions, QA) need an LLM. There are three backends, all using the same prompts and schemas:
+In the browser:
 
-| `models.provider` | Runs on | Needs | LLM cost per run |
+1. **New run**: the brief is prefilled with the GymBeam demo, edit it or keep it.
+2. **Judgement steps** (top right): pick who does analysis, plan, captions and QA (see the table below), then press **Start**.
+3. **Approve the plan**: read it, edit it if you want, then approve. Image generation starts only now.
+4. **Review the posts**: every frame shows its QA score; regenerate any frame you don't like.
+5. **Approve delivery**: posts, captions and `meta.md` go to `deliverables/`.
+
+Everything between the two approvals runs on its own.
+
+| Judgement steps | Runs on | Needs | LLM cost per run |
 |---|---|---|---|
-| `agent` (default) | Claude Code | a Claude Code login | none (your subscription) |
-| `openai` | OpenAI API (`gpt-5.5`, captions `gpt-5.4-mini`) | only `OPENAI_API_KEY` | roughly $0.5 |
-| `anthropic` | Claude API (Opus 5.5, captions Sonnet 5.5) | `ANTHROPIC_API_KEY` | roughly $0.5 |
+| Claude Code (automatic) | Claude Code, headless (`claude -p`) | Claude Code installed and logged in | none (your subscription) |
+| OpenAI API | `gpt-5.5`, captions `gpt-5.4-mini` | only `OPENAI_API_KEY` | roughly $0.5 |
+| Claude API | Opus 5.5, captions Sonnet 5.5 | `ANTHROPIC_API_KEY` | roughly $0.5 |
 
 Images always use the OpenAI API (`gpt-image-2.5-sunburst`, about $0.30 per run; the demo run cost **$0.33**, see `costs.json`).
 
-**Easiest: the web UI.** `uv run recept ui` opens http://127.0.0.1:8765. Write the brief, pick the backend in
-"Judgement steps" (Claude Code automatic, OpenAI API or Claude API) and press Start. The UI runs every step on its own;
-in Claude Code mode it calls `claude -p` headless with your login. It stops only at the two approvals: edit and approve
-the plan, then review every frame with its QA score, regenerate single frames and approve delivery.
+### Optional: terminal
 
-**Terminal, fully automatic:** set `models.provider: openai` (or `anthropic`) in `config.yaml`, then
+The UI runs the same CLI underneath. Set the backend in `config.yaml` (`models.provider`: `agent` = Claude Code,
+`openai`, `anthropic`) and run:
 
 ```bash
 uv run recept run --brief inputs/brief.yaml --run my-run
 ```
 
-**Terminal, with Claude Code:** keep `provider: agent`, open Claude Code in this folder (`claude`) and paste:
+With `openai` or `anthropic` it runs to the end, asking only at the two approvals. With `agent` (the default) it stops at
+every judgement task; open Claude Code in this folder (`claude`) and paste:
 
 ```
 Read RECEPT.md and run the recipe for inputs/brief.yaml with run id my-run. Do every agent task yourself, stop for my approval after the plan and before delivery.
 ```
 
-The program writes each judgement task to `runs/<id>/agent/*.request.md` and stops; Claude Code answers and reruns it.
 Do not paste the files from `prompts/` by hand: they are already included in every request file, together with the data.
 
-Useful flags: `--latest` (resume the last run), `--from <phase>` / `--to <phase>`, `--only-post N`, `--yes` (skip approval gates).
+Flags: `--latest` (resume the last run), `--from <phase>` / `--to <phase>`, `--only-post N`, `--yes` (skip approvals).
 Without `--brief` the program runs an interactive briefing.
 
 Docker: `docker build -t recept . && docker run --env-file .env -v $PWD/runs:/app/runs -v $PWD/deliverables:/app/deliverables recept`
