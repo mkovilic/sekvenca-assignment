@@ -1,0 +1,11 @@
+{
+  "score": 8,
+  "product_accurate": true,
+  "on_brand": true,
+  "text_legible": true,
+  "has_unwanted_text_or_people": false,
+  "issues": [
+    "Product sits on the plain dark card without a ground shadow, slightly floating"
+  ],
+  "fix_for_image_model": ""
+}

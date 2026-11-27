@@ -58,5 +58,5 @@ def render_reel(
             proc.stdin.write(img.convert("RGB").tobytes())
     proc.stdin.close()
     if proc.wait() != 0:
-        raise RuntimeError("ffmpeg nije uspio složiti reel")
+        raise RuntimeError("ffmpeg failed to render the reel")
     return out

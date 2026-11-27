@@ -1,7 +1,7 @@
 [project]
 name = "recept"
 version = "0.1.0"
-description = "AI recept: od Instagram brenda do tri gotove objave (brif -> analiza -> plan -> izrada -> provjera -> isporuka)"
+description = "AI recipe: from an Instagram brand to three finished posts (brief -> ingest -> analysis -> plan -> produce/QA -> deliver)"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

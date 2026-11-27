@@ -58,7 +58,7 @@ def scrape_product(client: httpx.Client, run: Run, url: str, hint: str) -> tuple
     nodes = _jsonld(page)
     prod = next((n for n in nodes if n.get("@type") == "Product"), None)
     if not prod:
-        raise RuntimeError(f"Nema schema.org Product podataka na {url}")
+        raise RuntimeError(f"No schema.org Product data on {url}")
     faq_node = next((n for n in nodes if n.get("@type") == "FAQPage"), {})
     faq = [
         FAQ(question=q["name"], answer=q["acceptedAnswer"]["text"])
@@ -101,10 +101,10 @@ def run(run: Run, brief: Brief, cfg: dict) -> Sources:
             try:
                 f, logo_url = scrape_product(client, run, p.url, p.packshot)
                 products.append(f)
-                run.log(f"proizvod: {f.name} ({len(f.faq)} FAQ, packshot: {bool(f.cutout)})")
+                run.log(f"product: {f.name} ({len(f.faq)} FAQ, packshot: {bool(f.cutout)})")
             except Exception as e:  # noqa: BLE001
                 unavailable.append(f"{p.url}: {e}")
-                run.log(f"NEDOSTUPNO {p.url}: {e}")
+                run.log(f"UNAVAILABLE {p.url}: {e}")
 
         local_logo = ROOT / "inputs" / "logo.png"
         if local_logo.exists():
@@ -116,14 +116,14 @@ def run(run: Run, brief: Brief, cfg: dict) -> Sources:
             dst.write_bytes(client.get(logo_url).content)
             logo = run.rel(dst)
         else:
-            unavailable.append("logo: nije pronađen na webu, dodaj inputs/logo.png")
+            unavailable.append("logo: not found on the website, add inputs/logo.png")
 
     ref_dir = ROOT / brief.references_dir
     shots = sorted(str(p.relative_to(ROOT).as_posix()) for p in ref_dir.glob("*") if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"})
     if not shots:
-        unavailable.append(f"Nema Instagram screenshotova u {brief.references_dir}")
+        unavailable.append(f"No Instagram screenshots in {brief.references_dir}")
     unavailable.append(
-        "Instagram nije čitan automatski (prijava i uvjeti korištenja); analiza koristi ručno spremljene screenshotove."
+        "Instagram was not scraped (login wall and terms of use); the analysis uses manually saved screenshots."
     )
     sources = Sources(products=products, logo=logo, instagram_screenshots=shots, unavailable=unavailable)
     run.save("ingest", sources)

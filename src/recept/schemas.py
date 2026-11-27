@@ -31,7 +31,7 @@ class Brief(BaseModel):
     inspiration: str = ""
     season: str = ""
     constraints: list[str] = []
-    language: str = "hr"
+    language: str = "en"
     references_dir: str = "inputs/instagram"
 
 
@@ -110,6 +110,11 @@ class Frame(BaseModel):
     product_mode: Literal["composite", "ai_edit", "none"] = Field(
         description="composite = real packshot pasted by code (label guaranteed exact); "
         "ai_edit = image model integrates the packshot (for stylised scenes); none = no product"
+    )
+    product_style: Literal["photo", "sticker"] = Field(
+        default="photo",
+        description="photo = packshot with a soft floor shadow (photographic scenes); sticker = white die-cut "
+        "outline, slightly tilted (illustrated scenes, matches the brand's cut-out collages)",
     )
     text_zone: Literal["top", "bottom", "center"] = "top"
     layout: Literal["photo", "dark_card"] = Field(

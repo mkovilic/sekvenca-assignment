@@ -1,0 +1,9 @@
+{
+  "score": 8,
+  "product_accurate": true,
+  "on_brand": true,
+  "text_legible": true,
+  "has_unwanted_text_or_people": false,
+  "issues": [],
+  "fix_for_image_model": ""
+}

@@ -1,0 +1,39 @@
+{
+  "brand": "GymBeam Croatia",
+  "instagram": "https://www.instagram.com/gymbeamhr/",
+  "website": "https://gymbeam.hr/",
+  "why_this_brand": "Suggested brand in the assignment. Large own-label range (no third-party trademarks on packaging), an active and varied Instagram with a clear visual identity (orange + dark backgrounds) and a habit of trend content.\n",
+  "products": [
+    {
+      "url": "https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html",
+      "note": "creatine monohydrate, a recurring \"hero\" of their posts",
+      "packshot": "creatine-monohydrate-unflavoured-mockup-view1_5"
+    },
+    {
+      "url": "https://gymbeam.hr/protein-just-whey-gymbeam.html",
+      "note": "GymBeam's main whey in the Croatian shop (True Whey is not sold there)",
+      "packshot": "just_whey_chocolate_milkshake_1_kg_gymbeam_1"
+    }
+  ],
+  "audience": "Croatia, 18-35, gym-goers and recreational athletes who are starting with supplements or want a trusted, affordable option. They follow fitness influencers and like humour and trends.\n",
+  "goals": [
+    "Post 1: education -> saves and shares (carousel)",
+    "Post 2: product showcase -> purchase intent (single image)",
+    "Post 3: trend/fun -> reactions and comments (reel)"
+  ],
+  "preferred_formats": [
+    "carousel",
+    "image",
+    "reel"
+  ],
+  "inspiration": "Their own retro neon / Miami illustration post (inputs/instagram/01_gta_trend.png, 2,147 likes, far above the profile average). We want a follow-up to that trend, with the real product in frame and no people. Educational carousels like \"Zodiac signs as GymBeam products\".\n",
+  "season": "December 2026 - holiday season (the MERRY FITMAS advent calendar is live on the profile).",
+  "constraints": [
+    "No people in the images.",
+    "Do not invent prices, discounts, codes, product properties or quotes from real people.",
+    "Logo, packaging and label must stay accurate.",
+    "No video game titles, logos or fonts (the style may be inspired by the genre, not copied)."
+  ],
+  "language": "en",
+  "references_dir": "inputs/instagram"
+}

@@ -1,0 +1,11 @@
+{
+  "score": 9,
+  "product_accurate": true,
+  "on_brand": true,
+  "text_legible": true,
+  "has_unwanted_text_or_people": false,
+  "issues": [
+    "Thin light rim at the very bottom of the jar from the studio shadow in the packshot"
+  ],
+  "fix_for_image_model": ""
+}

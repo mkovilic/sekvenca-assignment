@@ -8,14 +8,14 @@ from ..schemas import Brief, ProductRef
 from ..state import Run
 
 QUESTIONS = [
-    ("brand", "Naziv brenda"),
-    ("instagram", "Instagram profil (URL)"),
-    ("website", "Web-stranica / webshop"),
-    ("why_this_brand", "Zašto ovaj brend (kratko)"),
-    ("audience", "Ciljana publika"),
-    ("inspiration", "Uzori i inspiracija (opis ili putanje do slika)"),
-    ("season", "Sezona / kontekst objave"),
-    ("references_dir", "Mapa sa screenshotovima Instagram objava"),
+    ("brand", "Brand name"),
+    ("instagram", "Instagram profile URL"),
+    ("website", "Website / webshop"),
+    ("why_this_brand", "Why this brand (short)"),
+    ("audience", "Target audience"),
+    ("inspiration", "Role models and inspiration (text or image paths)"),
+    ("season", "Season / context"),
+    ("references_dir", "Folder with Instagram post screenshots"),
 ]
 
 
@@ -25,20 +25,21 @@ def _ask(label: str, default: str = "") -> str:
 
 
 def interactive() -> Brief:
-    print("\n— Brifing — (Enter = preskoči)\n")
+    print("\n— Briefing — (Enter = skip)\n")
     data: dict = {k: _ask(label) for k, label in QUESTIONS}
     data["references_dir"] = data["references_dir"] or "inputs/instagram"
     products = []
-    print("\nPoveznice proizvoda za promociju (prazan red za kraj):")
-    while url := input("  URL proizvoda: ").strip():
-        products.append(ProductRef(url=url, note=input("  Napomena: ").strip()))
+    print("\nProduct page URLs to promote (empty line to finish):")
+    while url := input("  Product URL: ").strip():
+        products.append(ProductRef(url=url, note=input("  Note: ").strip()))
     data["products"] = products
     goals = []
-    print("\nCiljevi za 3 objave (prazan red za kraj):")
-    while g := input("  Cilj: ").strip():
+    print("\nGoals for the 3 posts (empty line to finish):")
+    while g := input("  Goal: ").strip():
         goals.append(g)
-    data["goals"] = goals or ["edukacija", "interes za kupnju", "reakcije i komentari"]
-    data["constraints"] = [c.strip() for c in _ask("Ograničenja (odvojena s ;)").split(";") if c.strip()]
+    data["goals"] = goals or ["education", "purchase intent", "reactions and comments"]
+    data["constraints"] = [c.strip() for c in _ask("Constraints (separated by ;)").split(";") if c.strip()]
+    data["language"] = _ask("Post language", "en")
     return Brief.model_validate(data)
 
 
@@ -48,5 +49,5 @@ def run(run: Run, brief_path: str | None) -> Brief:
     else:
         brief = interactive()
     run.save("brief", brief)
-    run.log(f"brif: {brief.brand}, {len(brief.products)} proizvoda")
+    run.log(f"brief: {brief.brand}, {len(brief.products)} products")
     return brief

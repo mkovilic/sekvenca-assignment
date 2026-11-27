@@ -1,0 +1,119 @@
+{
+  "summary": "@gymbeamhr is GymBeam's Croatian profile (7,818 posts, 42.2K followers), positioned as 'Europe's largest one-stop shop for every sport'. The feed mixes influencer reels (mostly women in GymBeam apparel, in a kitchen or gym), product photography of own-label products, seasonal campaigns (Black Friday, the MERRY FITMAS advent calendar) and trend/meme posts (GTA-style illustration, gingerbread man in a Halloween scene, zodiac signs). The identity is held together by GymBeam orange, dark backgrounds and heavy condensed headlines with one highlighted word. The GTA-style illustration has several times more likes than any other visible post.",
+  "tone_of_voice": [
+    "relaxed and friendly, addresses followers as a group ('vi')",
+    "energetic, emoji-heavy (💪 😉 🎄 ✨ 👇)",
+    "playful and trend-aware (zodiac signs, GTA, 'Trick or treat')",
+    "sales-oriented but light: 'link in bio', discount codes only when a promotion exists",
+    "invites interaction with questions ('Which flavour are you trying first?', 'Send this to someone we nailed')"
+  ],
+  "audience": "Young adults in Croatia who train in the gym or recreationally, with a visible lean toward a female audience (#gbwomen, most reels feature female creators), interested in supplements, healthy snacks and sportswear.",
+  "recurring_themes": [
+    "own-label supplements (creatine, protein, vitamins, nut butters)",
+    "healthy food and recipes (PB&J, granola, cakes; a 'Recipes' story highlight)",
+    "sportswear and outfits (an 'Outfits' story highlight)",
+    "seasonal campaigns: Black Friday, MERRY FITMAS advent calendar, holiday flavours",
+    "influencer collaborations and discount codes",
+    "trend and meme formats: GTA illustration, Halloween, zodiac signs"
+  ],
+  "visual_style": [
+    "GymBeam orange as the main accent (logo, products, highlighted words in headlines)",
+    "dark, near-black backgrounds in graphic posts (zodiac carousel with a faint line grid)",
+    "studio packshots on flat backgrounds, often as cut-out collages (FOOD10 carousel)",
+    "dramatic lighting in athlete photography (orange smoke, dark backdrop)",
+    "festive advent graphics: red, green, pink, checker patterns",
+    "one illustrated trend post in a retro neon / Miami style (purple-pink sky, palms, art deco)"
+  ],
+  "palette_hex": [
+    "#FA762B",
+    "#20201E",
+    "#FEF6E2",
+    "#ED8E94",
+    "#C8102E"
+  ],
+  "typography": "Headlines in a very heavy, condensed grotesque, often all caps; part of the headline in cream and one word or the brand name in orange ('Horoskopski znakovi kao GymBeam proizvodi'). Reel subtitles in a white rounded sans with one word in orange ('KRENUTI OD'). Promo headlines (ŽELITE OVO?) in a heavy outlined display face.",
+  "product_presentation": "Products are always clearly visible with a readable label: studio packshots, products in creators' hands, in a shopping cart (Black Friday) or as cut-out collage elements over food. Creatine monohydrate is repeatedly the hero of creative scenes (angel wings, 'Trick or treat').",
+  "people_presentation": "People dominate the reels: female and male creators in GymBeam apparel, usually in a kitchen or gym, talking to camera. Collaborations are tagged (e.g. @zanamari). Graphic and educational posts have no people.",
+  "caption_patterns": [
+    "short 1-2 sentence captions for graphics and promotions ('Ne propustite Black Friday u GymBeamu! 😉💪')",
+    "longer captions with emoji bullet lists of products for launches (holiday collection)",
+    "a question to the audience at the end to drive comments",
+    "call to action: 'Klinite na link u opisu profila' (link in bio)",
+    "discount code only when a real promotion exists (FOOD10, ZANAMARI5)",
+    "3-5 hashtags at the end, always #gymbeamhr plus #gbfit / #gbig / #gbhealthy / #gbwomen"
+  ],
+  "hashtags": [
+    "#gymbeamhr",
+    "#gbfit",
+    "#gbig",
+    "#gbhealthy",
+    "#gbwomen",
+    "#gbmotivation"
+  ],
+  "engagement_observations": [
+    "GTA-style illustration (01_gta_trend.png): 2,147 likes and dozens of comments after one week",
+    "FOOD10 recipe carousel (06): 116 likes after ~2.5 weeks",
+    "zodiac carousel (07): 35 likes after 3 weeks",
+    "Black Friday carousel (05): 20 likes after 1 day; MERRY FITMAS reel (04): 11 likes after 18 hours - younger posts are not directly comparable",
+    "comments on the GTA post react to the trend itself ('Hehehe it's time 🔥 GTA', 'Znači ipak dobro dođe AI')"
+  ],
+  "verified_facts": [
+    {
+      "claim": "@gymbeamhr has 7,818 posts and 42.2K followers; bio: 'Europe's largest one-stop shop for every sport', 'More than 10,000 products in stock'",
+      "source": "02_profile_grid_full.png"
+    },
+    {
+      "claim": "Story highlights: Community, News, Articles, Recipes, Outfits, GymBeam App, YouTube",
+      "source": "02_profile_grid_full.png"
+    },
+    {
+      "claim": "GTA-style illustration posted as a collaboration with @zanamari, caption 'Happy long weekend! 😎', hashtags #gtavi #gta6, 2,147 likes",
+      "source": "01_gta_trend.png"
+    },
+    {
+      "claim": "Current holiday collection (gingerbread, eggnog and marzipan nut butters; granola; ginger shot) and the MERRY FITMAS advent calendar with 24 surprises",
+      "source": "04_merry_fitmas_reel.png"
+    },
+    {
+      "claim": "Educational/entertainment carousel uses a dark grid background, cream + orange headline, '01 / 13' numbering and a 'find your sign →' CTA",
+      "source": "07_horoscope_carousel.png"
+    },
+    {
+      "claim": "Creatine monohydrate appears as the hero of creative visuals (Trick or treat, angel wings)",
+      "source": "02_profile_grid_full.png"
+    },
+    {
+      "claim": "100% Creatine - GymBeam: 5 g creatine monohydrate per daily dose (1 scoop); can be taken at any time of day; daily consistency matters more than timing",
+      "source": "https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html"
+    },
+    {
+      "claim": "100% Creatine - GymBeam is formulated to increase performance during short, repeated intervals of intense exercise; unisex product; do not exceed 5 g per day",
+      "source": "https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html"
+    },
+    {
+      "claim": "Just Whey: whey protein from grass-fed cows' milk, made in Germany, 22.5 g protein per 30 g scoop (description says 'at least 22 g'), 6.5 g BCAA per serving, DigeZyme® enzymes, blend of concentrate, isolate and hydrolysate",
+      "source": "https://gymbeam.hr/protein-just-whey-gymbeam.html"
+    },
+    {
+      "claim": "Just Whey: mix 1 scoop (30 g) with 200-300 ml water or milk; 2.2 g sugar per serving; not lactose-free",
+      "source": "https://gymbeam.hr/protein-just-whey-gymbeam.html"
+    }
+  ],
+  "assumptions": [
+    "The audience is mostly 18-35 with a strong female share (inferred from creator choice and #gbwomen, not confirmed by data)",
+    "The GTA post's engagement is partly driven by current GTA VI interest and @zanamari's reach, not only by the style",
+    "Brand orange is approximately #FA762B (measured from a screenshot, not from official brand guidelines)",
+    "Graphic posts without people get less organic reach than creator reels"
+  ],
+  "unavailable_sources": [
+    "Instagram was not scraped (login wall and terms of use); the analysis uses 8 manually saved screenshots",
+    "No reach, saves or shares data (Instagram Insights not available)",
+    "Official brand guidelines (fonts, exact colours) are not public"
+  ],
+  "opportunities": [
+    "Follow up the GTA / retro neon trend with the real product in frame: the original has no product and does not lead to a purchase",
+    "A save-worthy creatine carousel in their proven template (dark grid, orange accent): creatine is a frequent topic, but fact-based education from the webshop data is almost absent",
+    "A Just Whey product post in the holiday context, using webshop facts instead of generic claims",
+    "More posts that carry 'trend' energy without needing a creator"
+  ]
+}

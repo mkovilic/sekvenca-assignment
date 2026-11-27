@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from ..config import ROOT, load_prompt
-from ..llm import Claude, image_blocks
+from ..llm import image_ref
 from ..schemas import BrandAnalysis, Brief, Sources
 from ..state import Run
 
@@ -9,36 +9,37 @@ from ..state import Run
 def facts_text(sources: Sources) -> str:
     out = []
     for p in sources.products:
-        out.append(f"### {p.name}\nid: {p.id}\nurl: {p.url}\nkategorija: {p.category}\nopis: {p.description}")
+        out.append(f"### {p.name}\nid: {p.id}\nurl: {p.url}\ncategory: {p.category}\ndescription: {p.description}")
         if p.price_low_eur:
-            out.append(f"raspon cijena (EUR, ovisno o pakiranju): {p.price_low_eur} – {p.price_high_eur}")
+            out.append(f"price range (EUR, depends on pack size): {p.price_low_eur} – {p.price_high_eur}")
         for f in p.faq:
-            out.append(f"- P: {f.question}\n  O: {f.answer}")
+            out.append(f"- Q: {f.question}\n  A: {f.answer}")
     return "\n".join(out)
 
 
-def run(run: Run, brief: Brief, sources: Sources, claude: Claude, cfg: dict) -> BrandAnalysis:
+def run(run: Run, brief: Brief, sources: Sources, claude, cfg: dict) -> BrandAnalysis:
     content: list[dict] = [
-        {"type": "text", "text": f"## Brif\n{brief.model_dump_json(indent=2)}"},
-        {"type": "text", "text": f"## Provjerene činjenice o proizvodima (webshop)\n{facts_text(sources)}"},
-        {"type": "text", "text": "## Nedostupni izvori\n" + "\n".join(sources.unavailable)},
-        {"type": "text", "text": "## Instagram screenshotovi"},
+        {"type": "text", "text": f"## Brief\n{brief.model_dump_json(indent=2)}"},
+        {"type": "text", "text": f"## Verified product facts (webshop)\n{facts_text(sources)}"},
+        {"type": "text", "text": "## Unavailable sources\n" + "\n".join(sources.unavailable)},
+        {"type": "text", "text": "## Instagram screenshots"},
     ]
     for shot in sources.instagram_screenshots:
-        content += image_blocks(ROOT / shot)
+        content.append(image_ref(ROOT / shot))
 
     analysis = claude.structured(
         phase="analysis",
+        key="analysis",
         model=cfg["models"]["reasoning"],
         effort=cfg["models"]["reasoning_effort"],
-        system=load_prompt("01_analiza.md").format(language=brief.language),
+        system=load_prompt("01_analysis.md").format(language=brief.language),
         content=content,
         schema=BrandAnalysis,
         max_tokens=32000,
     )
     run.save("analysis", analysis)
-    run.write_text("analiza.md", to_markdown(analysis))
-    run.log(f"analiza: {len(analysis.verified_facts)} provjerenih činjenica, {len(analysis.assumptions)} pretpostavki")
+    run.write_text("analysis.md", to_markdown(analysis))
+    run.log(f"analysis: {len(analysis.verified_facts)} verified facts, {len(analysis.assumptions)} assumptions")
     return analysis
 
 
@@ -46,48 +47,48 @@ def to_markdown(a: BrandAnalysis) -> str:
     def ul(items):
         return "\n".join(f"- {i}" for i in items)
 
-    return f"""# Analiza brenda
+    return f"""# Brand analysis
 
 {a.summary}
 
-## Ton
+## Tone of voice
 {ul(a.tone_of_voice)}
 
-## Publika
+## Audience
 {a.audience}
 
-## Teme
+## Recurring themes
 {ul(a.recurring_themes)}
 
-## Vizualni stil
+## Visual style
 {ul(a.visual_style)}
 
-**Paleta:** {", ".join(a.palette_hex)}
-**Tipografija:** {a.typography}
+**Palette:** {", ".join(a.palette_hex)}
+**Typography:** {a.typography}
 
-## Prikaz proizvoda
+## Product presentation
 {a.product_presentation}
 
-## Prikaz osoba
+## People
 {a.people_presentation}
 
-## Captioni
+## Captions
 {ul(a.caption_patterns)}
 
-**Hashtagovi:** {" ".join(a.hashtags)}
+**Hashtags:** {" ".join(a.hashtags)}
 
-## Angažman
+## Engagement
 {ul(a.engagement_observations)}
 
-## Provjereno (s izvorom)
+## Verified (with source)
 {ul(f"{e.claim} — _{e.source}_" for e in a.verified_facts)}
 
-## Pretpostavke (nije provjereno)
+## Assumptions (not verified)
 {ul(a.assumptions)}
 
-## Nedostupni izvori
+## Unavailable sources
 {ul(a.unavailable_sources)}
 
-## Prilike
+## Opportunities
 {ul(a.opportunities)}
 """

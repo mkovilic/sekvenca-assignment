@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import base64
 import io
+import json
 from pathlib import Path
 from typing import TypeVar
 
@@ -37,8 +38,8 @@ def image_blocks(path: str | Path, label: str | None = None) -> list[dict]:
         tile.thumbnail((MAX_EDGE, MAX_EDGE))
         buf = io.BytesIO()
         tile.save(buf, format="JPEG", quality=88)
-        suffix = f" (dio {i + 1}/{len(tiles)})" if len(tiles) > 1 else ""
-        blocks.append({"type": "text", "text": f"[Slika: {name}{suffix}]"})
+        suffix = f" (part {i + 1}/{len(tiles)})" if len(tiles) > 1 else ""
+        blocks.append({"type": "text", "text": f"[Image: {name}{suffix}]"})
         blocks.append(
             {
                 "type": "image",
@@ -50,6 +51,53 @@ def image_blocks(path: str | Path, label: str | None = None) -> list[dict]:
             }
         )
     return blocks
+
+
+def image_ref(path: str | Path, label: str | None = None) -> dict:
+    return {"type": "image_ref", "path": str(path), "label": label or Path(path).name}
+
+
+def _expand(content: list[dict]) -> list[dict]:
+    out: list[dict] = []
+    for b in content:
+        out += image_blocks(b["path"], b["label"]) if b["type"] == "image_ref" else [b]
+    return out
+
+
+class AgentPending(Exception):
+    def __init__(self, requests: list[Path]):
+        self.requests = requests
+        super().__init__(f"{len(requests)} tasks waiting for the agent")
+
+
+class AgentLLM:
+    """No API: writes each request to runs/<id>/agent/<key>.request.md and reads the answer from
+    <key>.json, written by an agent such as Claude Code (see RECEPT.md)."""
+
+    def __init__(self, run_dir: Path):
+        self.dir = run_dir / "agent"
+        self.dir.mkdir(exist_ok=True)
+
+    def structured(self, *, key: str, system: str, content: list[dict] | str, schema: type[T], **_) -> T:
+        answer = self.dir / f"{key}.json"
+        if answer.exists():
+            return schema.model_validate_json(answer.read_text(encoding="utf-8"))
+        if isinstance(content, str):
+            content = [{"type": "text", "text": content}]
+        parts = [f"# Task: {key}\n\n## Instructions\n{system}\n"]
+        for b in content:
+            if b["type"] == "image_ref":
+                parts.append(f"[Image: {b['label']}] -> view file `{Path(b['path']).resolve()}`")
+            else:
+                parts.append(b["text"])
+        parts.append(
+            f"\n## Output\nWrite JSON matching this schema to `{answer.resolve()}`:\n```json\n"
+            + json.dumps(schema.model_json_schema(), indent=1, ensure_ascii=False)
+            + "\n```"
+        )
+        req = self.dir / f"{key}.request.md"
+        req.write_text("\n\n".join(parts), encoding="utf-8")
+        raise AgentPending([req])
 
 
 class Claude:
@@ -67,11 +115,13 @@ class Claude:
         content: list[dict] | str,
         schema: type[T],
         max_tokens: int = 16000,
+        key: str = "",
     ) -> T:
         """One call, validated against `schema`. Server-side fallback re-runs a refused request on
         another model inside the same call (beta), so a false-positive refusal doesn't stop the run."""
         if isinstance(content, str):
             content = [{"type": "text", "text": content}]
+        content = _expand(content)
         with self.client.beta.messages.stream(
             model=model,
             max_tokens=max_tokens,
@@ -86,9 +136,9 @@ class Claude:
         self.costs.claude(phase, resp.model or model, resp.usage)
         if resp.stop_reason == "refusal":
             details = getattr(resp, "stop_details", None)
-            raise RuntimeError(f"Claude je odbio zahtjev u fazi {phase}: {details}")
+            raise RuntimeError(f"Claude refused the request in phase {phase}: {details}")
         if resp.stop_reason == "max_tokens":
-            raise RuntimeError(f"Odgovor u fazi {phase} je odrezan (max_tokens). Povećaj max_tokens.")
+            raise RuntimeError(f"Response in phase {phase} was truncated (max_tokens). Increase max_tokens.")
         if resp.parsed_output is None:
-            raise RuntimeError(f"Faza {phase}: odgovor nije prošao validaciju sheme.")
+            raise RuntimeError(f"Phase {phase}: response failed schema validation.")
         return resp.parsed_output

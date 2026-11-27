@@ -1,0 +1,16 @@
+{
+  "chosen": "03_a0.png",
+  "attempts": [
+    {
+      "attempt": 0,
+      "file": "03_a0.png",
+      "score": 9,
+      "product_accurate": true,
+      "on_brand": true,
+      "text_legible": true,
+      "has_unwanted_text_or_people": false,
+      "issues": [],
+      "fix_for_image_model": ""
+    }
+  ]
+}

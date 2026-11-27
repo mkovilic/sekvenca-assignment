@@ -26,7 +26,7 @@ class Run:
     def latest(cls) -> "Run":
         runs = sorted((ROOT / "runs").glob("*/"))
         if not runs:
-            raise SystemExit("Nema prethodnih pokretanja u runs/.")
+            raise SystemExit("No previous runs in runs/.")
         return cls(runs[-1].name)
 
     def path(self, *parts: str) -> Path:
@@ -46,7 +46,7 @@ class Run:
     def load(self, phase: str, cls: type[T]) -> T:
         p = self.path(f"{PHASES.index(phase)}_{phase}.json")
         if not p.exists():
-            raise SystemExit(f"Faza '{phase}' nije spremljena u {self.dir}. Pokreni je prvo.")
+            raise SystemExit(f"Phase '{phase}' is not saved in {self.dir}. Run it first.")
         return cls.model_validate_json(p.read_text(encoding="utf-8"))
 
     def has(self, phase: str) -> bool:

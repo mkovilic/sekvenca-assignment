@@ -1,0 +1,12 @@
+{
+  "score": 5,
+  "product_accurate": true,
+  "on_brand": true,
+  "text_legible": true,
+  "has_unwanted_text_or_people": false,
+  "issues": [
+    "The real packshot stands in front of the drawn wooden pedestal instead of on it; scale and perspective don't match, the product looks pasted",
+    "Photographic packshot clashes with the flat illustration style"
+  ],
+  "fix_for_image_model": "Do not draw any pedestal, podium or platform. The lower-middle of the frame must be open flat ground (boardwalk planks or neon grid floor) that continues to the bottom edge, with nothing standing on it."
+}

@@ -1,0 +1,172 @@
+{
+  "posts": [
+    {
+      "number": 1,
+      "format": "carousel",
+      "goal": "Education -> saves and shares",
+      "concept": "'Creatine, no nonsense': 6 slides in the brand's proven template (dark grid, cream + orange headline, page numbers), one webshop fact per slide. Product on the first and last slide.",
+      "rationale": "The zodiac carousel shows the brand already uses this template for save-worthy content, and creatine is a recurring hero of their feed. Education built only on official product data builds trust and gives a reason to save without inventing claims.",
+      "frames": [
+        {
+          "headline": "Creatine, no nonsense",
+          "subtext": "4 things to know before your first scoop.",
+          "highlight_word": "Creatine",
+          "scene_prompt": "",
+          "product_id": "kreatin1-monohidrat-gymbeam",
+          "product_mode": "composite",
+          "text_zone": "top",
+          "layout": "dark_card"
+        },
+        {
+          "headline": "5 g. One scoop.",
+          "subtext": "That is the recommended daily dose. Do not exceed 5 g a day.",
+          "highlight_word": "scoop",
+          "scene_prompt": "",
+          "product_id": "",
+          "product_mode": "none",
+          "text_zone": "center",
+          "layout": "dark_card"
+        },
+        {
+          "headline": "Morning or night? Either.",
+          "subtext": "Take it any time of day. Consistency matters more than the clock.",
+          "highlight_word": "Either",
+          "scene_prompt": "",
+          "product_id": "",
+          "product_mode": "none",
+          "text_zone": "center",
+          "layout": "dark_card"
+        },
+        {
+          "headline": "Built for short, intense sets",
+          "subtext": "Formulated for performance in short, repeated intervals of intense exercise.",
+          "highlight_word": "intense",
+          "scene_prompt": "",
+          "product_id": "",
+          "product_mode": "none",
+          "text_zone": "center",
+          "layout": "dark_card"
+        },
+        {
+          "headline": "Unisex. No exceptions.",
+          "subtext": "Same goal, same 5 g dose for everyone who trains strength or high intensity.",
+          "highlight_word": "Unisex",
+          "scene_prompt": "",
+          "product_id": "",
+          "product_mode": "none",
+          "text_zone": "center",
+          "layout": "dark_card"
+        },
+        {
+          "headline": "Save it for leg day",
+          "subtext": "100% Creatine Monohydrate – GymBeam. Link in bio.",
+          "highlight_word": "Save",
+          "scene_prompt": "",
+          "product_id": "kreatin1-monohidrat-gymbeam",
+          "product_mode": "composite",
+          "text_zone": "top",
+          "layout": "dark_card"
+        }
+      ],
+      "caption_brief": "Short intro in the brand voice, ask people to save the post and tag the friend who overthinks creatine, a question for comments (when do you take it?), link in bio. No prices or discounts.",
+      "facts_used": [
+        "Recommended daily dose is 5 g, one scoop; do not exceed 5 g per day",
+        "Can be taken at any time of day; daily consistency matters more than timing",
+        "Formulated to increase performance during short, repeated intervals of intense exercise",
+        "Unisex product with the same primary goal of supporting performance"
+      ]
+    },
+    {
+      "number": 2,
+      "format": "image",
+      "goal": "Product showcase -> purchase intent",
+      "concept": "'Holidays? Protein doesn't take a break.' Just Whey as the hero of a warm holiday scene in the brand's dark tones, with key facts from the official product page.",
+      "rationale": "The profile is in holiday mode (MERRY FITMAS, holiday flavours), and the brand's product posts always show the label clearly. The real packshot guarantees accurate packaging, and the facts (22.5 g protein, grass-fed milk) give a concrete reason to buy.",
+      "frames": [
+        {
+          "headline": "Holidays? Protein doesn't take a break.",
+          "subtext": "Just Whey: 22.5 g protein per 30 g scoop, from grass-fed cows' milk.",
+          "highlight_word": "Protein",
+          "scene_prompt": "Cozy dark winter kitchen counter at night, matte charcoal stone surface in the foreground, warm golden Christmas string lights softly out of focus in the background, a few cinnamon sticks, star anise and pine branches at the far left and right edges, subtle warm orange rim light, deep dark tones, premium product photography, shallow depth of field.",
+          "product_id": "protein-just-whey-gymbeam",
+          "product_mode": "composite",
+          "text_zone": "top",
+          "layout": "photo"
+        }
+      ],
+      "caption_brief": "Festive and short: protein in December too, 2-3 emoji bullets with facts (22.5 g protein per 30 g scoop, grass-fed cows' milk, DigeZyme® enzymes), question 'What's your holiday flavour?', link in bio.",
+      "facts_used": [
+        "22.5 g protein per 30 g scoop",
+        "Whey protein from grass-fed cows' milk",
+        "Made in Germany",
+        "DigeZyme® enzymes"
+      ]
+    },
+    {
+      "number": 3,
+      "format": "reel",
+      "goal": "Trend/fun -> reactions and comments",
+      "concept": "'Neon Christmas': a holiday follow-up to their retro neon / Miami trend - palm trees wrapped in Christmas lights, neon sunset, creatine as the 'power-up'. 5 illustrated shots with motion, no people.",
+      "rationale": "Their GTA-style illustration has 2,147 likes, several times more than any other visible post, but no product. Continuing the same visual language with the product in frame and a seasonal twist reuses proven engagement and points it at a product. The style is inspired by the genre, with no game title, logos or characters.",
+      "frames": [
+        {
+          "headline": "Sunset. Neon. Leg day.",
+          "subtext": "",
+          "highlight_word": "Neon.",
+          "scene_prompt": "Retro 1980s Miami-style illustrated poster, wide neon-lit ocean boulevard at sunset, tall palm trees wrapped in glowing Christmas fairy lights, pastel art deco hotels with pink and teal neon trim, purple-pink-orange gradient sky, sun setting over the sea, glossy wet asphalt reflections, clean bold digital illustration with crisp outlines.",
+          "product_id": "",
+          "product_mode": "none",
+          "text_zone": "top",
+          "layout": "photo"
+        },
+        {
+          "headline": "Mission: 5 g a day",
+          "subtext": "One scoop. Every day.",
+          "highlight_word": "Mission",
+          "scene_prompt": "Retro 1980s Miami-style illustrated poster, wooden beach boardwalk at golden-pink sunset, a round wooden pedestal in the lower middle, palm trees with Christmas lights on both sides, art deco buildings with neon trim in the background, warm orange and magenta sky, clean bold digital illustration with crisp outlines.",
+          "product_id": "kreatin1-monohidrat-gymbeam",
+          "product_mode": "composite",
+          "text_zone": "top",
+          "layout": "photo",
+          "product_style": "sticker"
+        },
+        {
+          "headline": "Morning or night?",
+          "subtext": "Either. Just don't skip it.",
+          "highlight_word": "night",
+          "scene_prompt": "Retro 1980s Miami-style illustrated poster at night, empty outdoor beach gym with chrome weight racks and dumbbells under neon pink and cyan lights, palm trees with Christmas fairy lights, starry violet sky with a crescent moon over the ocean, clean bold digital illustration with crisp outlines.",
+          "product_id": "",
+          "product_mode": "none",
+          "text_zone": "top",
+          "layout": "photo"
+        },
+        {
+          "headline": "Power-up unlocked",
+          "subtext": "100% Creatine Monohydrate.",
+          "highlight_word": "Power-up",
+          "scene_prompt": "Retro 1980s synthwave illustrated poster, glowing neon pedestal in the lower middle with radiating orange and magenta light rays, neon grid floor stretching to a huge striped setting sun, silhouettes of palm trees with Christmas lights at the sides, sparkles in the air, clean bold digital illustration with crisp outlines.",
+          "product_id": "kreatin1-monohidrat-gymbeam",
+          "product_mode": "composite",
+          "text_zone": "top",
+          "layout": "photo",
+          "product_style": "sticker"
+        },
+        {
+          "headline": "Who's training tomorrow?",
+          "subtext": "Tell us in the comments.",
+          "highlight_word": "training",
+          "scene_prompt": "Retro 1980s Miami-style illustrated poster, wide sunset beach with a row of palm trees wrapped in glowing Christmas lights, a small decorated Christmas tree on the sand in the lower middle, lifeguard tower painted pink and teal, purple-orange gradient sky, calm sea, clean bold digital illustration with crisp outlines.",
+          "product_id": "",
+          "product_mode": "none",
+          "text_zone": "top",
+          "layout": "photo"
+        }
+      ],
+      "caption_brief": "Playful caption that picks up their GTA trend without naming the game ('Neon Christmas edition'), one fact (5 g a day, any time of day), a comment prompt with an emoji (🌴 if you train over the holidays), brand hashtags.",
+      "facts_used": [
+        "Recommended daily dose is 5 g, one scoop",
+        "Can be taken at any time of day; daily consistency matters more than timing"
+      ]
+    }
+  ]
+}

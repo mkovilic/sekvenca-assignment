@@ -1,0 +1,38 @@
+[13:36:19] run gymbeam-demo
+[13:36:19] brief: GymBeam Croatia, 2 products
+[13:36:25] product: 100% Kreatin - GymBeam (7 FAQ, packshot: True)
+[13:36:29] product: Just Whey Grass-Fed Protein – GymBeam (7 FAQ, packshot: True)
+[13:37:26] run gymbeam-demo
+[13:37:27] analysis: 10 verified facts, 4 assumptions
+[13:37:27] plan: 1=carousel, 2=image, 3=reel
+[13:37:27] — producing post 1 (carousel, 6 frames)
+[13:37:46] run gymbeam-demo
+[13:37:47] — producing post 1 (carousel, 6 frames)
+[13:37:47] — producing post 2 (image, 1 frames)
+[13:38:26] — producing post 3 (reel, 5 frames)
+[13:42:16] run gymbeam-demo
+[13:42:17] — producing post 1 (carousel, 6 frames)
+[13:42:17] post 1 frame 1 attempt 0: score 8 PASS
+[13:42:17] post 1 frame 2 attempt 0: score 8 PASS
+[13:42:17] post 1 frame 3 attempt 0: score 8 PASS
+[13:42:17] post 1 frame 4 attempt 0: score 8 PASS
+[13:42:17] post 1 frame 5 attempt 0: score 8 PASS
+[13:42:17] post 1 frame 6 attempt 0: score 8 PASS
+[13:42:17] — producing post 2 (image, 1 frames)
+[13:42:18] post 2 frame 1 attempt 0: score 9 PASS
+[13:42:18] — producing post 3 (reel, 5 frames)
+[13:42:18] post 3 frame 1 attempt 0: score 9 PASS
+[13:42:20] post 3 frame 2 attempt 0: score 5 FAIL: The real packshot stands in front of the drawn wooden pedestal instead of on it; scale and perspective don't match, the product looks pasted; Photographic packs
+[13:42:50] post 3 frame 3 attempt 0: score 9 PASS
+[13:42:52] post 3 frame 4 attempt 0: score 5 FAIL: The packshot covers the neon pedestal instead of standing on it; looks pasted; Photographic packshot clashes with the synthwave illustration
+[13:43:21] post 3 frame 5 attempt 0: score 9 PASS
+[13:43:48] run gymbeam-demo
+[13:43:49] — producing post 1 (carousel, 6 frames)
+[13:43:49] — producing post 2 (image, 1 frames)
+[13:43:49] — producing post 3 (reel, 5 frames)
+[13:43:50] post 3 frame 2 attempt 0: score 5 FAIL: The real packshot stands in front of the drawn wooden pedestal instead of on it; scale and perspective don't match, the product looks pasted; Photographic packs
+[13:43:52] post 3 frame 2 attempt 1: score 8 PASS
+[13:43:54] post 3 frame 4 attempt 0: score 5 FAIL: The packshot covers the neon pedestal instead of standing on it; looks pasted; Photographic packshot clashes with the synthwave illustration
+[13:43:56] post 3 frame 4 attempt 1: score 8 PASS
+[13:44:33] post 3: reel.mp4 rendered (5 shots)
+[13:44:33] delivered to C:\Users\kova\sekvenca\deliverables

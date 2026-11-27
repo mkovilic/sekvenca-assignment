@@ -122,9 +122,29 @@ def legibility_gradient(img: Image.Image, zone: str, strength: int = 190) -> Ima
     return Image.alpha_composite(img, shade)
 
 
-def place_product(img: Image.Image, cutout: Path, zone: str, height_frac: float = 0.5) -> Image.Image:
+def sticker(prod: Image.Image, border: int = 14, tilt: float = -4) -> Image.Image:
+    # White die-cut outline, like the brand's own cut-out collages (FOOD10 carousel).
+    pad = border * 2
+    canvas = Image.new("RGBA", (prod.width + pad * 2, prod.height + pad * 2), (0, 0, 0, 0))
+    canvas.alpha_composite(prod, (pad, pad))
+    a = canvas.getchannel("A").point(lambda v: 255 if v > 40 else 0)
+    outline = a.filter(ImageFilter.MaxFilter(border * 2 + 1)).filter(ImageFilter.GaussianBlur(1.5))
+    base = Image.new("RGBA", canvas.size, (255, 255, 255, 0))
+    base.putalpha(outline)
+    drop = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    drop.putalpha(outline.point(lambda v: v * 0.45).filter(ImageFilter.GaussianBlur(12)))
+    out = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    out.alpha_composite(drop, (6, 10))
+    out.alpha_composite(base)
+    out.alpha_composite(canvas)
+    return out.rotate(tilt, resample=Image.BICUBIC, expand=True)
+
+
+def place_product(img: Image.Image, cutout: Path, zone: str, height_frac: float = 0.5, style: str = "photo") -> Image.Image:
     W, H = img.size
     prod = Image.open(cutout).convert("RGBA")
+    if style == "sticker":
+        prod = sticker(prod, border=max(8, prod.width // 45))
     ph = int(H * height_frac)
     pw = int(prod.width * ph / prod.height)
     if pw > W * 0.7:
@@ -133,6 +153,11 @@ def place_product(img: Image.Image, cutout: Path, zone: str, height_frac: float 
     prod = prod.resize((pw, ph), Image.LANCZOS)
     x = (W - pw) // 2
     y = H - ph - int(H * 0.07) if zone != "bottom" else int(H * 0.12)
+
+    if style == "sticker":
+        img = img.copy()
+        img.alpha_composite(prod, (x, y))
+        return img
 
     shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
     sd = ImageDraw.Draw(shadow)
@@ -202,7 +227,7 @@ def compose_frame(
             img = legibility_gradient(img, frame.text_zone)
     if cutout and frame.product_mode == "composite":
         frac = 0.42 if frame.layout == "dark_card" else (0.36 if size[1] > size[0] * 1.5 else 0.5)
-        img = place_product(img, cutout, frame.text_zone, frac)
+        img = place_product(img, cutout, frame.text_zone, frac, frame.product_style)
     if with_text:
         img = draw_text_block(img, frame, style, frame.text_zone)
     img = add_logo(img, logo, "tr" if frame.text_zone == "bottom" else "br")

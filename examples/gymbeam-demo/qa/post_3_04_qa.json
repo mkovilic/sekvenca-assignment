@@ -1,0 +1,32 @@
+{
+  "chosen": "04_a1.png",
+  "attempts": [
+    {
+      "attempt": 0,
+      "file": "04_a0.png",
+      "score": 5,
+      "product_accurate": true,
+      "on_brand": true,
+      "text_legible": true,
+      "has_unwanted_text_or_people": false,
+      "issues": [
+        "The packshot covers the neon pedestal instead of standing on it; looks pasted",
+        "Photographic packshot clashes with the synthwave illustration"
+      ],
+      "fix_for_image_model": "Do not draw any pedestal, podium or platform. The lower-middle of the frame must be open flat ground (boardwalk planks or neon grid floor) that continues to the bottom edge, with nothing standing on it."
+    },
+    {
+      "attempt": 1,
+      "file": "04_a1.png",
+      "score": 8,
+      "product_accurate": true,
+      "on_brand": true,
+      "text_legible": true,
+      "has_unwanted_text_or_people": false,
+      "issues": [
+        "Sticker outline makes the photo-on-illustration mix read as an intentional collage"
+      ],
+      "fix_for_image_model": ""
+    }
+  ]
+}

@@ -1,17 +1,17 @@
-# Sve postavke recepta na jednom mjestu. Ključevi su u .env, ne ovdje.
+# All recipe settings. API keys live in .env, never here.
 
 models:
-  # Analiza brenda, plan sadržaja i vizualna provjera kvalitete
-  reasoning: claude-opus-5-5
+  # agent     = analysis, plan, captions and QA are done by Claude Code from prompts/ (no API cost, see RECEPT.md)
+  # anthropic = the same steps run automatically through the Claude API (needs ANTHROPIC_API_KEY)
+  provider: agent
+  reasoning: claude-opus-5-5      # analysis, plan, visual QA
   reasoning_effort: high
-  # Captioni (kraći, jeftiniji zadatak)
-  copy: claude-sonnet-5-5
+  copy: claude-sonnet-5-5         # captions
   copy_effort: medium
-  # Generiranje i uređivanje slika
-  image: gpt-image-2.5-sunburst
+  image: gpt-image-2.5-sunburst   # scene generation / editing (OpenAI)
   image_quality: high
 
-# Cijene za izračun troška (USD po 1M tokena). Provjeri prije predaje.
+# USD per 1M tokens, used for costs.json. Check before relying on it.
 pricing:
   claude-opus-5-5: {input: 4.00, output: 20.00}
   claude-sonnet-5-5: {input: 2.00, output: 10.00}
@@ -24,16 +24,16 @@ formats:
   reel_fps: 30
 
 brand_style:
-  # Popunjava se iz analize; ovo su sigurne zadane vrijednosti (provjerene na @gymbeamhr)
-  primary: "#FF5A1F"
-  dark: "#141414"
-  light: "#F5EFE6"
+  # Measured from inputs/instagram/07_horoscope_carousel.png (the brand's own educational template)
+  primary: "#FA762B"
+  dark: "#20201E"
+  light: "#FEF6E2"
   headline_font: assets/fonts/Anton-Regular.ttf
   body_font: assets/fonts/Montserrat-VF.ttf
 
 qa:
-  max_retries: 2          # koliko puta se slika ponovno generira ako padne provjeru
-  min_score: 7            # 1-10, ispod toga slika pada
+  max_retries: 2   # regenerate a frame up to N times if it fails QA
+  min_score: 7     # 1-10
 
 scrape:
   user_agent: "Mozilla/5.0 (recept-bot; demo)"

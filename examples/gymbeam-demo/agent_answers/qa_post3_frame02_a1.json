@@ -1,0 +1,11 @@
+{
+  "score": 8,
+  "product_accurate": true,
+  "on_brand": true,
+  "text_legible": true,
+  "has_unwanted_text_or_people": false,
+  "issues": [
+    "Sticker outline makes the photo-on-illustration mix read as an intentional collage"
+  ],
+  "fix_for_image_model": ""
+}

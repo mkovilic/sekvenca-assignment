@@ -1,46 +1,46 @@
-# Ulazni brif za demonstraciju (ekvivalent odgovora na interaktivni brifing).
-# Pokretanje bez pitanja: uv run recept run --brief inputs/brief.yaml
+# Demo brief (the answers to the interactive briefing).
+# Run without questions: uv run recept run --brief inputs/brief.yaml
 
-brand: GymBeam Hrvatska
+brand: GymBeam Croatia
 instagram: https://www.instagram.com/gymbeamhr/
 website: https://gymbeam.hr/
 why_this_brand: >
-  Preporučeni brend iz zadatka; velik vlastiti asortiman (proizvodi s vlastitom etiketom, pa nema
-  tuđih zaštićenih brendova na slikama), aktivan i raznolik Instagram s jasnim vizualnim identitetom
-  (narančasta + tamna pozadina) i sklonošću trend sadržaju.
+  Suggested brand in the assignment. Large own-label range (no third-party trademarks on packaging),
+  an active and varied Instagram with a clear visual identity (orange + dark backgrounds) and a habit
+  of trend content.
 
 products:
   - url: https://gymbeam.hr/kreatin1-monohidrat-gymbeam.html
-    note: kreatin monohidrat, čest "heroj" njihovih objava
+    note: creatine monohydrate, a recurring "hero" of their posts
     packshot: creatine-monohydrate-unflavoured-mockup-view1_5
   - url: https://gymbeam.hr/protein-just-whey-gymbeam.html
-    note: glavni GymBeam whey u HR trgovini (True Whey se u HR ne prodaje)
+    note: GymBeam's main whey in the Croatian shop (True Whey is not sold there)
     packshot: just_whey_chocolate_milkshake_1_kg_gymbeam_1
 
 audience: >
-  Hrvatska, 18-35, rekreativci i teretana-entuzijasti koji tek ulaze u suplementaciju ili traže
-  provjerenu, cjenovno pristupačnu opciju. Prate fitness influencere, vole humor i trendove.
+  Croatia, 18-35, gym-goers and recreational athletes who are starting with supplements or want a
+  trusted, affordable option. They follow fitness influencers and like humour and trends.
 
 goals:
-  - "Objava 1: edukacija -> spremanja i dijeljenja (karusel)"
-  - "Objava 2: predstavljanje proizvoda -> interes za kupnju (jedna slika)"
-  - "Objava 3: trend/zabava -> reakcije i komentari (reel)"
+  - "Post 1: education -> saves and shares (carousel)"
+  - "Post 2: product showcase -> purchase intent (single image)"
+  - "Post 3: trend/fun -> reactions and comments (reel)"
 
 preferred_formats: [carousel, image, reel]
 
 inspiration: >
-  Njihova vlastita objava u retro neon / Miami ilustracijskom stilu (inputs/instagram/01_gta_trend.png,
-  2.147 lajkova, daleko iznad prosjeka profila) - želimo nastavak tog trenda, ali s pravim proizvodom
-  u kadru i bez osoba. Edukativni karuseli u stilu "Horoskopski znakovi kao GymBeam proizvodi".
+  Their own retro neon / Miami illustration post (inputs/instagram/01_gta_trend.png, 2,147 likes,
+  far above the profile average). We want a follow-up to that trend, with the real product in frame
+  and no people. Educational carousels like "Zodiac signs as GymBeam products".
 
-season: "Prosinac 2026 - blagdanska sezona (adventski kalendar MERRY FITMAS je aktualan na profilu)."
+season: "December 2026 - holiday season (the MERRY FITMAS advent calendar is live on the profile)."
 
 constraints:
-  - Bez osoba na slikama.
-  - Ne izmišljati cijene, popuste, kodove, svojstva ni izjave stvarnih osoba.
-  - Logo, pakiranje i etiketa moraju ostati točni.
-  - Bez oznaka, logotipa ili fontova videoigara (stil smije biti inspiriran žanrom, ne kopija).
+  - No people in the images.
+  - Do not invent prices, discounts, codes, product properties or quotes from real people.
+  - Logo, packaging and label must stay accurate.
+  - No video game titles, logos or fonts (the style may be inspired by the genre, not copied).
 
-language: hr
+language: en
 
 references_dir: inputs/instagram

@@ -11,9 +11,10 @@ Frame rules:
 - `highlight_word` is one word that appears in the headline, rendered in brand orange (the brand does this, see analysis).
 - `scene_prompt` (English) describes ONLY the background scene: setting, light, colours, mood, camera. No text, letters, logos, brand names, packaging or people. Explicitly keep the `text_zone` area calm and uncluttered, and for product frames leave a clear surface/space in the lower-middle where the product will stand.
 - `product_mode`:
-  - `composite` (default for photographic scenes): the real packshot is pasted by code, label stays exact. Describe a scene with a surface/pedestal and lighting that matches a studio packshot.
+  - `composite` (default for photographic scenes): the real packshot is pasted by code, label stays exact. Describe an open, flat surface running to the bottom edge (no pedestal or podium: a pasted product can't stand on a drawn pedestal convincingly) and lighting that matches a studio packshot.
   - `ai_edit`: only for stylised/illustrated scenes where a pasted photo would look wrong; the image model then redraws the product from the packshot reference, and QA checks label accuracy.
   - `none`: no product.
+- `product_style`: `photo` for photographic scenes (soft floor shadow), `sticker` for illustrated scenes (white die-cut outline, like the brand's cut-out collages) so a real packshot doesn't look pasted onto a drawing.
 - `layout`: `dark_card` for text-led educational slides (brand dark background, product optional), `photo` for full-bleed scenes.
 - Use the product ids exactly as given in the product facts.
 

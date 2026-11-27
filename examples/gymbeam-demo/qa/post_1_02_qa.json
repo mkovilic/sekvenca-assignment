@@ -1,0 +1,18 @@
+{
+  "chosen": "02_a0.png",
+  "attempts": [
+    {
+      "attempt": 0,
+      "file": "02_a0.png",
+      "score": 8,
+      "product_accurate": true,
+      "on_brand": true,
+      "text_legible": true,
+      "has_unwanted_text_or_people": false,
+      "issues": [
+        "Lower half of the slide is empty; acceptable for a text-led template"
+      ],
+      "fix_for_image_model": ""
+    }
+  ]
+}

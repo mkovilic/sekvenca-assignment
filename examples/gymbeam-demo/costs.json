@@ -1,0 +1,80 @@
+{
+  "calls": [
+    {
+      "time": "2026-11-27T13:38:25",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 148,
+      "image_in": 0,
+      "image_out": 1587,
+      "usd": 0.04835
+    },
+    {
+      "time": "2026-11-27T13:38:55",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 114,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.0405
+    },
+    {
+      "time": "2026-11-27T13:39:22",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 143,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.04065
+    },
+    {
+      "time": "2026-11-27T13:39:53",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 107,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.04047
+    },
+    {
+      "time": "2026-11-27T13:40:20",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 143,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.04065
+    },
+    {
+      "time": "2026-11-27T13:40:46",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 112,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.04049
+    },
+    {
+      "time": "2026-11-27T13:42:48",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 187,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.04086
+    },
+    {
+      "time": "2026-11-27T13:43:19",
+      "phase": "produce",
+      "model": "gpt-image-2.5-sunburst",
+      "text_in": 187,
+      "image_in": 0,
+      "image_out": 1331,
+      "usd": 0.04086
+    }
+  ],
+  "total_usd": 0.3328,
+  "by_phase": {
+    "produce": 0.333
+  }
+}
