@@ -59,9 +59,14 @@ def main() -> None:
     costs = CostTracker(run, cfg["pricing"])
     llm = images = None
     if todo("analysis") or todo("plan") or todo("produce"):
-        from .llm import AgentLLM, Claude
+        from .llm import AgentLLM, Claude, OpenAILLM
 
-        llm = Claude(costs) if provider == "anthropic" else AgentLLM(run.dir)
+        if provider == "anthropic":
+            llm = Claude(costs)
+        elif provider == "openai":
+            llm = OpenAILLM(costs, cfg["models"])
+        else:
+            llm = AgentLLM(run.dir)
     if todo("produce"):
         from .images import ImageModel
 
@@ -80,7 +85,8 @@ def main() -> None:
             "\nOpen Claude Code in this folder (`claude`) and paste:\n\n"
             f"  Read RECEPT.md and continue the recipe run {run.id}. Do every agent task yourself, "
             "stop for my approval after the plan and before delivery.\n\n"
-            "Or set models.provider: anthropic in config.yaml (needs ANTHROPIC_API_KEY) to run without stopping."
+            "Or set models.provider: openai (only OPENAI_API_KEY) or anthropic (ANTHROPIC_API_KEY) in config.yaml "
+            "to run without stopping, or use the web UI (uv run recept ui), which drives Claude Code for you."
         )
         sys.exit(3)
 
@@ -130,7 +136,7 @@ def _check_keys(todo, provider: str) -> None:
     missing = []
     if provider == "anthropic" and (todo("analysis") or todo("plan") or todo("produce")) and not os.getenv("ANTHROPIC_API_KEY"):
         missing.append("ANTHROPIC_API_KEY")
-    if todo("produce") and not os.getenv("OPENAI_API_KEY"):
+    if (todo("produce") or (provider == "openai" and (todo("analysis") or todo("plan")))) and not os.getenv("OPENAI_API_KEY"):
         missing.append("OPENAI_API_KEY")
     if missing:
         raise SystemExit(f"Missing {', '.join(missing)} in .env (see .env.example).")

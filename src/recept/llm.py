@@ -1,4 +1,4 @@
-"""Thin wrapper around the Anthropic SDK: structured (Pydantic) outputs + images + cost tracking."""
+"""LLM backends with one contract (structured Pydantic output from text + images): Claude Code agent, Claude API, OpenAI API."""
 
 from __future__ import annotations
 
@@ -142,3 +142,37 @@ class Claude:
         if resp.parsed_output is None:
             raise RuntimeError(f"Phase {phase}: response failed schema validation.")
         return resp.parsed_output
+
+
+class OpenAILLM:
+    """Same contract as Claude, through the OpenAI Responses API (structured outputs + image input)."""
+
+    def __init__(self, costs: CostTracker, models: dict):
+        from openai import OpenAI
+
+        self.client = OpenAI()
+        self.costs = costs
+        self.models = models
+
+    def structured(self, *, phase: str, model: str, effort: str, system: str, content: list[dict] | str,
+                   schema: type[T], key: str = "", **_) -> T:
+        if isinstance(content, str):
+            content = [{"type": "text", "text": content}]
+        parts: list[dict] = []
+        for b in _expand(content):
+            if b["type"] == "image":
+                parts.append({"type": "input_image", "image_url": f"data:{b['source']['media_type']};base64,{b['source']['data']}"})
+            else:
+                parts.append({"type": "input_text", "text": b["text"]})
+        name = self.models["openai_copy"] if phase == "caption" else self.models["openai_reasoning"]
+        resp = self.client.responses.parse(
+            model=name,
+            instructions=system,
+            input=[{"role": "user", "content": parts}],
+            text_format=schema,
+            reasoning={"effort": effort if effort in ("low", "medium", "high") else "medium"},
+        )
+        self.costs.openai(phase, name, resp.usage)
+        if resp.output_parsed is None:
+            raise RuntimeError(f"Phase {phase}: OpenAI response failed schema validation or was refused.")
+        return resp.output_parsed

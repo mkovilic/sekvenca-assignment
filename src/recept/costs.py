@@ -41,6 +41,23 @@ class CostTracker:
         )
         return usd
 
+    def openai(self, phase: str, model: str, usage) -> float:
+        p = self.pricing.get(model) or {"input": 0, "output": 0}
+        cached = getattr(getattr(usage, "input_tokens_details", None), "cached_tokens", 0) or 0
+        inp = (usage.input_tokens or 0) - cached
+        usd = (inp * p["input"] + cached * p.get("cached_input", p["input"] * 0.1) + usage.output_tokens * p["output"]) / 1e6
+        self._add(
+            {
+                "time": datetime.now().isoformat(timespec="seconds"),
+                "phase": phase,
+                "model": model,
+                "input_tokens": usage.input_tokens,
+                "output_tokens": usage.output_tokens,
+                "usd": round(usd, 5),
+            }
+        )
+        return usd
+
     def image(self, phase: str, model: str, usage) -> float:
         p = self.pricing.get(model) or {"text_input": 0, "image_input": 0, "image_output": 0}
         if usage is None:

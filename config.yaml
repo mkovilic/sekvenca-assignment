@@ -3,11 +3,14 @@
 models:
   # agent     = analysis, plan, captions and QA are done by Claude Code from prompts/ (no API cost, see RECEPT.md)
   # anthropic = the same steps run automatically through the Claude API (needs ANTHROPIC_API_KEY)
+  # openai    = the same steps run automatically through the OpenAI API (needs only OPENAI_API_KEY)
   provider: agent
   reasoning: claude-opus-5-5      # analysis, plan, visual QA
   reasoning_effort: high
   copy: claude-sonnet-5-5         # captions
   copy_effort: medium
+  openai_reasoning: gpt-5.5       # provider openai: analysis, plan, visual QA
+  openai_copy: gpt-5.4-mini       # provider openai: captions
   image: gpt-image-2.5-sunburst   # scene generation / editing (OpenAI)
   image_quality: high
 
@@ -15,6 +18,8 @@ models:
 pricing:
   claude-opus-5-5: {input: 4.00, output: 20.00}
   claude-sonnet-5-5: {input: 2.00, output: 10.00}
+  gpt-5.5: {input: 5.00, cached_input: 0.50, output: 30.00}
+  gpt-5.4-mini: {input: 0.75, cached_input: 0.075, output: 4.50}
   gpt-image-2.5-sunburst: {text_input: 5.00, image_input: 8.00, image_output: 30.00}
 
 formats:

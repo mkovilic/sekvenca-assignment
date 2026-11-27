@@ -104,11 +104,11 @@ ul.keys { margin: 6px 0; padding-left: 18px; color: var(--muted); font-size: 12p
 const PHASES = ["brief", "ingest", "analysis", "plan", "produce", "deliver"];
 const ACTION_NAMES = { create: "Brief → plan", plan: "Brief → plan", produce: "Image production + QA", deliver: "Delivery", regen: "Regenerating frame" };
 let current = null, detail = null, tab = "posts", autoResume = true, resumedFor = null, modes = null;
-const MODE_NAMES = { claude: "Claude Code (automatic)", manual: "Claude Code (I paste the prompt)", api: "Claude API" };
+const MODE_NAMES = { claude: "Claude Code (automatic)", openai: "OpenAI API (automatic)", api: "Claude API (automatic)", manual: "Claude Code (I paste the prompt)" };
 function getMode() {
   let m = null; try { m = localStorage.getItem("recept-mode"); } catch (e) {}
   if (modes && m && modes[m]) return m;
-  return modes && modes.claude ? "claude" : modes && modes.api ? "api" : "manual";
+  return modes && modes.claude ? "claude" : modes && modes.openai ? "openai" : modes && modes.api ? "api" : "manual";
 }
 function setMode(m) { try { localStorage.setItem("recept-mode", m); } catch (e) {} }
 function modeSelect() {
@@ -218,21 +218,21 @@ function nextAction(d) {
       ? `Claude Code is working: ${tasks.length ? tasks.map(taskName).join(", ") : "starting"}`
       : (ACTION_NAMES[j.action] || j.action) + "…";
     return `<div class="card"><div class="row"><span class="spin"></span><b>${esc(title)}</b></div>
-    <p class="muted" style="margin:6px 0 0">${j.phase === "agent" ? "Nothing to do on your side. The run continues by itself when the answer is written (analysis and plan take 1–2 min each)." : "Running the recipe…"}</p>
+    <p class="muted" style="margin:6px 0 0">${j.phase === "agent" ? "Nothing to do on your side. The run continues by itself when the answer is written (analysis and plan take 1–2 min each)." : j.mode === "openai" || j.mode === "api" ? "Nothing to do on your side. Judgement steps run through the " + (j.mode === "openai" ? "OpenAI" : "Claude") + " API." : "Running the recipe…"}</p>
     <pre class="console" id="console">${esc(j.lines.join("\n"))}</pre></div>`;
   }
   if (d.pending.length && j && j.mode === "claude" && j.code === 3) return `<div class="card error"><h2>Claude Code could not finish ${d.pending.length} task(s)</h2>
     <pre class="console">${esc(j.lines.filter((l) => l.startsWith("[claude]")).slice(-12).join(String.fromCharCode(10)))}</pre>
     <div class="row" style="margin-top:10px"><button class="primary" onclick="act('${resumeAction(d)}')">Retry</button></div></div>`;
   if (d.pending.length) {
-    const auto = !j || j.mode !== "api";
+    const auto = !j || j.mode === "manual" || j.mode === "claude";
     return `<div class="card action"><h2>Waiting for the agent: ${d.pending.length} task(s)</h2>
-      <p class="muted">Judgement steps (analysis, plan, captions, QA) run in <b>Claude Code</b>. Open Claude Code in the project folder and paste:</p>
+      <p class="muted">You chose to run the judgement steps (analysis, plan, captions, QA) in your own Claude Code session. Open Claude Code in the project folder and paste:</p>
       <code class="prompt">${esc(d.agent_prompt)}</code>
       <div class="row"><button class="small" onclick="copy(detail.agent_prompt)">Copy prompt</button>
       ${auto ? `<label class="muted"><input type="checkbox" style="width:auto" ${autoResume ? "checked" : ""} onchange="autoResume=this.checked"> continue automatically when the answers appear</label>` : ""}</div>
       <ul class="keys">${d.pending.map((p) => `<li>${esc(p.key)}</li>`).join("")}</ul>
-      <p class="muted" style="margin:0">Or set <code>models.provider: anthropic</code> in config.yaml to run without stopping.</p></div>`;
+      <p class="muted" style="margin:0">Or pick <b>Claude Code (automatic)</b>, <b>OpenAI API</b> or <b>Claude API</b> in "Judgement steps" above and press Continue: the run then finishes by itself.</p></div>`;
   }
   if (j && j.code && j.code !== 3) return `<div class="card error"><h2>Step failed (exit ${j.code})</h2>
     <pre class="console">${esc(j.lines.slice(-40).join("\n"))}</pre>

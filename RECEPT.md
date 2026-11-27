@@ -36,5 +36,7 @@ Loop:
 
 ## Switching to fully automatic
 
-Set `models.provider: anthropic` in `config.yaml` and add `ANTHROPIC_API_KEY` to `.env`. The same prompts and schemas
-are then sent to the Claude API (structured outputs), and the program runs end to end without stopping.
+Set `models.provider` in `config.yaml` to `openai` (needs only `OPENAI_API_KEY`, already used for images) or
+`anthropic` (needs `ANTHROPIC_API_KEY`). The same prompts and schemas are then sent to that API as structured outputs,
+and the program runs end to end without stopping. The web UI (`uv run recept ui`) offers the same choice in its header,
+plus "Claude Code (automatic)", which runs `claude -p` headless for each task so nothing has to be pasted.

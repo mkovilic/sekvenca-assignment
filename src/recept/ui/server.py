@@ -44,7 +44,7 @@ class Job:
 
     def _cli(self) -> int:
         env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1",
-               "RECEPT_PROVIDER": "anthropic" if self.mode == "api" else "agent"}
+               "RECEPT_PROVIDER": {"api": "anthropic", "openai": "openai"}.get(self.mode, "agent")}
         if self.mode == "claude":
             env["RECEPT_UI_AGENT"] = "1"
         proc = subprocess.Popen(
@@ -213,7 +213,7 @@ def run_detail(run_id: str) -> dict:
 
 
 def _modes() -> dict:
-    return {"claude": bool(claude_path()), "manual": True, "api": bool(os.getenv("ANTHROPIC_API_KEY"))}
+    return {"claude": bool(claude_path()), "openai": bool(os.getenv("OPENAI_API_KEY")), "api": bool(os.getenv("ANTHROPIC_API_KEY")), "manual": True}
 
 
 def start(run_id: str, action: str, body: dict) -> None:

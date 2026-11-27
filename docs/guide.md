@@ -7,10 +7,10 @@
 
 1. Install [uv](https://docs.astral.sh/uv/). Run `cp .env.example .env` and add `OPENAI_API_KEY`, then run `uv sync`.
 2. `uv run recept run --brief inputs/brief.yaml --run my-run`. Leave out `--brief` to get the interactive briefing.
-3. The judgement steps run either through **Claude Code** (`provider: agent`, the default, no LLM API cost) or through the **Claude API** (`provider: anthropic`). In agent mode, open Claude Code in the folder and paste the starting prompt from `RECEPT.md`. Claude Code answers the tasks the program writes to `runs/<id>/agent/` and reruns the command.
+3. The judgement steps run through **Claude Code** (`provider: agent`, the default, no API cost), the **OpenAI API** (`provider: openai`, only the OpenAI key, ~$0.5) or the **Claude API** (`provider: anthropic`). With the two APIs the run is fully automatic. In agent mode, open Claude Code in the folder and paste the starting prompt from `RECEPT.md`.
 4. **Human steps:** approve the plan before images are generated, and approve the finished frames before delivery. Both gates are skipped with `--yes`.
 
-5. **Web UI** (simplest): `uv run recept ui`. Everything runs from the browser: the UI calls Claude Code headless for the judgement tasks and stops only at the two approvals (plan editing, frames with QA scores, regenerating a single frame, delivery).
+5. **Web UI** (simplest): `uv run recept ui`. Everything runs from the browser with the backend chosen in the header (Claude Code headless, OpenAI API or Claude API). It stops only at the two approvals (plan editing, frames with QA scores, regenerating a single frame, delivery).
 
 Settings are in `config.yaml`: models, image quality, sizes, brand colours and fonts, QA threshold and number of retries. Docker: see the README.
 
@@ -33,7 +33,7 @@ Every phase writes its result to disk, and finished steps are skipped on rerun. 
 - **Facts come only from the shop's structured data.** The webshop has a small inconsistency: Just Whey's description says "at least 22 g" of protein, while the FAQ says "22.5 g per 30 g scoop". The post uses the exact FAQ figure.
 - **Brand style is measured, not guessed.** The colours `#FA762B`, `#20201E` and `#FEF6E2` were sampled from the brand's own carousel. The carousel copies their educational template (dark grid, page numbers, one word in orange).
 - **Post 3 continues their own trend.** The GTA-style illustration had 2,147 likes, far more than any other visible post, but no product. The reel keeps the aesthetic, adds the product and a seasonal twist, and uses no game names or logos.
-- **Two LLM modes, one set of prompts.** Prompts and schemas are shared, so the Claude Code run and the API run are the same recipe.
+- **Three LLM backends, one set of prompts.** Claude Code, OpenAI and Claude API implement the same `structured()` call (text + images in, Pydantic object out), so every backend runs the same recipe.
 
 ## Quality checks and limitations
 

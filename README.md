@@ -20,30 +20,35 @@ cp .env.example .env          # add OPENAI_API_KEY
 uv sync
 ```
 
-The judgement steps (analysis, plan, captions, QA) need an LLM. Pick one:
+The judgement steps (analysis, plan, captions, QA) need an LLM. There are three backends, all using the same prompts and schemas:
 
-**Option A: Claude Code (default, no LLM API cost).** Open Claude Code in this folder (`claude`) and paste:
+| `models.provider` | Runs on | Needs | LLM cost per run |
+|---|---|---|---|
+| `agent` (default) | Claude Code | a Claude Code login | none (your subscription) |
+| `openai` | OpenAI API (`gpt-5.5`, captions `gpt-5.4-mini`) | only `OPENAI_API_KEY` | roughly $0.5 |
+| `anthropic` | Claude API (Opus 5.5, captions Sonnet 5.5) | `ANTHROPIC_API_KEY` | roughly $0.5 |
 
-```
-Read RECEPT.md and run the recipe for inputs/brief.yaml with run id my-run. Do every agent task yourself, stop for my approval after the plan and before delivery.
-```
+Images always use the OpenAI API (`gpt-image-2.5-sunburst`, about $0.30 per run; the demo run cost **$0.33**, see `costs.json`).
 
-Claude Code runs the program. The program writes each judgement task to `runs/<id>/agent/*.request.md` and stops.
-Claude Code answers each task and reruns the program, until the posts are in `deliverables/`. You only approve the plan and the final posts.
-Do not paste the files from `prompts/` by hand: they are already included in every request file, together with the data.
+**Easiest: the web UI.** `uv run recept ui` opens http://127.0.0.1:8765. Write the brief, pick the backend in
+"Judgement steps" (Claude Code automatic, OpenAI API or Claude API) and press Start. The UI runs every step on its own;
+in Claude Code mode it calls `claude -p` headless with your login. It stops only at the two approvals: edit and approve
+the plan, then review every frame with its QA score, regenerate single frames and approve delivery.
 
-**Option B: Claude API (fully automatic).** Set `models.provider: anthropic` in `config.yaml`, add `ANTHROPIC_API_KEY` to `.env`, then run:
+**Terminal, fully automatic:** set `models.provider: openai` (or `anthropic`) in `config.yaml`, then
 
 ```bash
 uv run recept run --brief inputs/brief.yaml --run my-run
 ```
 
-Image generation always uses the OpenAI API (`gpt-image-2.5-sunburst`). The demo run cost **$0.33** (see `costs.json`).
+**Terminal, with Claude Code:** keep `provider: agent`, open Claude Code in this folder (`claude`) and paste:
 
-**Web UI (everything from the browser):** `uv run recept ui` opens http://127.0.0.1:8765. Write the brief, then the UI
-runs every step. It calls Claude Code headless (`claude -p`, uses your Claude Code login, no API key) for the judgement tasks
-and continues on its own. It stops only at the two approvals: edit and approve the plan, review every frame with its QA score,
-regenerate single frames, approve delivery. The selector in the header switches to the Claude API or to pasting the prompt yourself.
+```
+Read RECEPT.md and run the recipe for inputs/brief.yaml with run id my-run. Do every agent task yourself, stop for my approval after the plan and before delivery.
+```
+
+The program writes each judgement task to `runs/<id>/agent/*.request.md` and stops; Claude Code answers and reruns it.
+Do not paste the files from `prompts/` by hand: they are already included in every request file, together with the data.
 
 Useful flags: `--latest` (resume the last run), `--from <phase>` / `--to <phase>`, `--only-post N`, `--yes` (skip approval gates).
 Without `--brief` the program runs an interactive briefing.
@@ -62,6 +67,9 @@ inputs/brief.yaml ─► brief ─► ingest ─────────► anal
 ```
 
 Each phase saves a Pydantic-validated JSON file in `runs/<id>/`. Any phase can be resumed or hand-edited, for example by editing `3_plan.json`.
+
+**Same recipe on every backend:** `src/recept/llm.py` has one `structured()` contract (text + images in, a Pydantic
+object out) implemented by `AgentLLM` (Claude Code), `Claude` (Anthropic API) and `OpenAILLM` (OpenAI Responses API).
 
 **Why the products stay accurate:** the image model never draws the product or any text. It only generates the
 background scene. The real packshot from the webshop is cut out (rembg merged with a flood-fill mask, so both
