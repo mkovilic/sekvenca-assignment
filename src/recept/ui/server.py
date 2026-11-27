@@ -45,6 +45,8 @@ class Job:
     def _cli(self) -> int:
         env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1",
                "RECEPT_PROVIDER": "anthropic" if self.mode == "api" else "agent"}
+        if self.mode == "claude":
+            env["RECEPT_UI_AGENT"] = "1"
         proc = subprocess.Popen(
             self.cmd, cwd=ROOT, env=env, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
             text=True, encoding="utf-8", errors="replace",
@@ -63,7 +65,8 @@ class Job:
                     self.code = code
                     return
                 self.phase = "agent"
-                if not answer_all(RUNS / self.run_id / "agent", self.log):
+                keys = self._handed_keys()
+                if not keys or not answer_all(RUNS / self.run_id / "agent", self.log, keys):
                     self.log("[claude] some tasks could not be answered; see above. Retry or answer them manually.")
                     self.code = 3
                     return
@@ -72,6 +75,13 @@ class Job:
         except Exception as e:
             self.log(f"error: {e}")
             self.code = 1
+
+    def _handed_keys(self) -> list[str]:
+        prefix = "Handing "
+        for line in reversed(self.lines):
+            if line.startswith(prefix) and ": " in line:
+                return [k.strip() for k in line.split(": ", 1)[1].split(",")]
+        return []
 
     def state(self) -> dict:
         return {"id": self.started, "action": self.action, "mode": self.mode, "phase": self.phase,

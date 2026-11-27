@@ -182,11 +182,45 @@ function resumeAction(d) {
   return d.phases.plan ? "produce" : "plan";
 }
 
+function activeTasks(j) {
+  const state = {};
+  for (const l of j.lines) {
+    const m = l.match(/^\[claude\] (\S+): (working|done)/);
+    if (m) state[m[1]] = m[2];
+  }
+  return Object.keys(state).filter((k) => state[k] === "working");
+}
+function taskName(k) {
+  let m;
+  if (k === "analysis") return "brand analysis";
+  if (k === "plan") return "content plan";
+  if ((m = k.match(/^qa_post(\d+)_frame(\d+)/))) return `QA post ${m[1]} frame ${+m[2]}`;
+  if ((m = k.match(/^caption_qa_post(\d+)/))) return `caption check post ${m[1]}`;
+  if ((m = k.match(/^caption_post(\d+)/))) return `caption post ${m[1]}`;
+  return k;
+}
+function currentStep(d) {
+  const j = d.job;
+  if (!j || !j.running) return null;
+  if (j.action === "deliver") return "deliver";
+  if (j.action === "produce" || j.action === "regen") return "produce";
+  const t = activeTasks(j);
+  if (t.includes("plan")) return "plan";
+  if (t.includes("analysis") || d.phases.ingest) return d.phases.analysis ? "plan" : "analysis";
+  return d.phases.brief ? "ingest" : "brief";
+}
+
 function nextAction(d) {
   const j = d.job, ph = d.phases, running = j && j.running;
-  if (running) return `<div class="card"><div class="row"><span class="spin"></span><b>${j.phase === "agent" ? "Claude Code is working on the judgement tasks…" : (ACTION_NAMES[j.action] || j.action) + "…"}</b>
-    ${j.phase === "agent" ? '<span class="muted">analysis, plan, captions and QA take a minute or two each</span>' : ""}</div>
+  if (running) {
+    const tasks = activeTasks(j);
+    const title = j.phase === "agent"
+      ? `Claude Code is working: ${tasks.length ? tasks.map(taskName).join(", ") : "starting"}`
+      : (ACTION_NAMES[j.action] || j.action) + "…";
+    return `<div class="card"><div class="row"><span class="spin"></span><b>${esc(title)}</b></div>
+    <p class="muted" style="margin:6px 0 0">${j.phase === "agent" ? "Nothing to do on your side. The run continues by itself when the answer is written (analysis and plan take 1–2 min each)." : "Running the recipe…"}</p>
     <pre class="console" id="console">${esc(j.lines.join("\n"))}</pre></div>`;
+  }
   if (d.pending.length && j && j.mode === "claude" && j.code === 3) return `<div class="card error"><h2>Claude Code could not finish ${d.pending.length} task(s)</h2>
     <pre class="console">${esc(j.lines.filter((l) => l.startsWith("[claude]")).slice(-12).join(String.fromCharCode(10)))}</pre>
     <div class="row" style="margin-top:10px"><button class="primary" onclick="act('${resumeAction(d)}')">Retry</button></div></div>`;
@@ -272,7 +306,8 @@ function render() {
   $("#main").innerHTML = `
     <div class="row" style="justify-content:space-between"><div><h1>${esc(d.id)}</h1>
       <div class="muted">Images: OpenAI · AI cost so far $${d.cost.toFixed(2)}</div></div>${modeSelect()}</div>
-    <div class="stepper">${PHASES.map((p, i) => `<span class="step ${d.phases[p] ? "done" : i === doneIdx ? "current" : ""}">${p}</span>`).join("")}</div>
+    <div class="stepper">${PHASES.map((p, i) => { const cur = currentStep(d); const active = cur ? p === cur : !d.phases[p] && i === doneIdx;
+      return `<span class="step ${d.phases[p] && p !== cur ? "done" : active ? "current" : ""}">${p === cur ? '<span class="spin" style="width:10px;height:10px;vertical-align:-1px"></span> ' : ""}${p}</span>`; }).join("")}</div>
     <div id="next">${nextAction(d)}</div>
     <div class="tabs">${["posts", "plan", "analysis", "brief", "log"].map((t) => `<button class="tab ${t === tab ? "active" : ""}" onclick="tab='${t}';render()">${t[0].toUpperCase() + t.slice(1)}</button>`).join("")}</div>
     ${views[tab]()}`;

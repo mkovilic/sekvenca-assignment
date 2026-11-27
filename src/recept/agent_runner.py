@@ -92,8 +92,9 @@ def answer_one(req: Path, log: Callable[[str], None], model: str | None = None, 
     return False
 
 
-def answer_all(agent_dir: Path, log: Callable[[str], None], model: str | None = None, workers: int = 4) -> bool:
-    reqs = pending(agent_dir)
+def answer_all(agent_dir: Path, log: Callable[[str], None], keys: list[str] | None = None,
+               model: str | None = None, workers: int = 4) -> bool:
+    reqs = [r for r in pending(agent_dir) if keys is None or r.name.removesuffix(".request.md") in keys]
     if not reqs:
         return True
     log(f"[claude] answering {len(reqs)} task(s) with Claude Code")

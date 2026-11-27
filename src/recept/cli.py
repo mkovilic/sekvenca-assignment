@@ -70,6 +70,9 @@ def main() -> None:
     try:
         _pipeline(args, run, cfg, todo, stop, llm, images)
     except AgentPending as e:
+        if os.getenv("RECEPT_UI_AGENT"):
+            print(f"Handing {len(e.requests)} task(s) to Claude Code: {', '.join(r.name.removesuffix('.request.md') for r in e.requests)}")
+            sys.exit(3)
         print(f"\nWaiting for the agent. {len(e.requests)} task(s) in {run.dir / 'agent'}:")
         for req in e.requests:
             print(f"  - {req.name}")
