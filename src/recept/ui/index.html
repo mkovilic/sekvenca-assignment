@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>recept</title>
+<style>
+:root {
+  --bg: #161614; --panel: #20201E; --panel2: #2a2a27; --line: #3a3a36;
+  --text: #f3eee2; --muted: #a29d91; --accent: #FA762B; --ok: #57c27a; --bad: #ef5b5b; --warn: #e8b93c;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--accent); }
+button { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--panel2); color: var(--text);
+  padding: 7px 14px; border-radius: 8px; }
+button:hover { border-color: var(--muted); }
+button.primary { background: var(--accent); border-color: var(--accent); color: #1b1b19; font-weight: 600; }
+button.primary:hover { filter: brightness(1.08); }
+button:disabled { opacity: .5; cursor: default; }
+button.small { padding: 3px 9px; font-size: 12px; }
+input, textarea { font: 13px/1.45 ui-monospace, "Cascadia Mono", Consolas, monospace; width: 100%; background: #121211;
+  color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }
+textarea { resize: vertical; }
+.app { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+aside { background: var(--panel); border-right: 1px solid var(--line); padding: 18px 14px; }
+.logo { font-weight: 800; letter-spacing: .5px; font-size: 18px; margin-bottom: 4px; }
+.logo span { color: var(--accent); }
+.sub { color: var(--muted); font-size: 12px; margin-bottom: 18px; }
+.run-item { display: block; width: 100%; text-align: left; margin-bottom: 6px; background: transparent; border-color: transparent; }
+.run-item.active { background: var(--panel2); border-color: var(--line); }
+.run-item .rid { font-weight: 600; }
+.run-item .meta { color: var(--muted); font-size: 12px; }
+.dots { display: inline-flex; gap: 3px; margin-left: 6px; vertical-align: middle; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
+.dots i.on { background: var(--accent); }
+main { padding: 24px 32px; max-width: 1200px; }
+h1 { margin: 0 0 4px; font-size: 22px; }
+h2 { font-size: 16px; margin: 0 0 10px; }
+.muted { color: var(--muted); }
+.stepper { display: flex; gap: 6px; margin: 16px 0 20px; flex-wrap: wrap; }
+.step { padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.step.done { border-color: var(--accent); color: var(--text); }
+.step.done::before { content: "✓ "; color: var(--accent); }
+.step.current { background: var(--panel2); color: var(--text); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; margin-bottom: 18px; }
+.card.action { border-color: var(--accent); }
+.card.error { border-color: var(--bad); }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.spin { width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%;
+  animation: s 1s linear infinite; display: inline-block; }
+@keyframes s { to { transform: rotate(360deg); } }
+pre.console { background: #0f0f0e; border: 1px solid var(--line); border-radius: 8px; padding: 10px; max-height: 320px;
+  overflow: auto; font-size: 12px; white-space: pre-wrap; margin: 10px 0 0; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.tab { background: transparent; border: none; border-bottom: 2px solid transparent; border-radius: 0; color: var(--muted); padding: 8px 14px; }
+.tab.active { color: var(--text); border-bottom-color: var(--accent); }
+.post { margin-bottom: 26px; }
+.post-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--panel2);
+  border: 1px solid var(--line); color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+.frames { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; margin: 12px 0; }
+.frame { background: var(--panel2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame img { width: 100%; display: block; cursor: zoom-in; background: #111; }
+.frame .fi { padding: 8px 10px; font-size: 12px; }
+.score { font-weight: 700; }
+.score.ok { color: var(--ok); } .score.bad { color: var(--bad); }
+.issues { color: var(--muted); margin: 4px 0 6px; max-height: 54px; overflow: hidden; }
+.caption { white-space: pre-wrap; background: var(--panel2); border-radius: 8px; padding: 12px; font-size: 13px; }
+video { max-width: 320px; width: 100%; border-radius: 8px; background: #000; }
+.md table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 13px; }
+.md th, .md td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+.md h1 { font-size: 20px; } .md h2 { font-size: 16px; margin-top: 22px; }
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.88); display: none; align-items: center; justify-content: center; z-index: 10; cursor: zoom-out; }
+.lightbox img { max-width: 94vw; max-height: 94vh; }
+.toast { position: fixed; bottom: 20px; right: 20px; background: var(--panel2); border: 1px solid var(--line); padding: 10px 14px;
+  border-radius: 8px; display: none; max-width: 420px; white-space: pre-wrap; z-index: 11; }
+.empty { color: var(--muted); padding: 40px 0; text-align: center; }
+code.prompt { display: block; background: #121211; border: 1px solid var(--line); border-radius: 8px; padding: 10px; margin: 8px 0; font-size: 13px; }
+ul.keys { margin: 6px 0; padding-left: 18px; color: var(--muted); font-size: 12px; columns: 2; }
+@media (max-width: 760px) {
+  .app { grid-template-columns: 1fr; }
+  aside { border-right: none; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  ul.keys { columns: 1; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="logo">re<span>cept</span></div>
+    <div class="sub">Instagram brand → three finished posts</div>
+    <button class="primary" style="width:100%;margin-bottom:16px" onclick="showNew()">+ New run</button>
+    <div id="runs"></div>
+  </aside>
+  <main id="main"><div class="empty">Select a run or start a new one.</div></main>
+</div>
+<div class="lightbox" id="lb" onclick="this.style.display='none'"><img id="lbimg" alt=""></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const PHASES = ["brief", "ingest", "analysis", "plan", "produce", "deliver"];
+const ACTION_NAMES = { create: "Brief → plan", plan: "Brief → plan", produce: "Image production + QA", deliver: "Delivery", regen: "Regenerating frame" };
+let current = null, detail = null, tab = "posts", autoResume = true, resumedFor = null;
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function toast(msg, ms = 3500) {
+  const t = $("#toast"); t.textContent = msg; t.style.display = "block";
+  clearTimeout(t._h); t._h = setTimeout(() => (t.style.display = "none"), ms);
+}
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : {});
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+}
+function copy(text) { navigator.clipboard.writeText(text).then(() => toast("Copied")); }
+function zoom(src) { $("#lbimg").src = src; $("#lb").style.display = "flex"; }
+
+async function loadRuns() {
+  const { runs } = await api("/api/runs");
+  $("#runs").innerHTML = runs.length ? runs.map((r) => `
+    <button class="run-item ${r.id === current ? "active" : ""}" onclick="openRun('${r.id}')">
+      <div class="rid">${esc(r.id)} ${r.running ? '<span class="spin"></span>' : ""}</div>
+      <div class="meta">${esc(r.brand || "—")}<span class="dots">${PHASES.map((p) => `<i class="${r.phases[p] ? "on" : ""}" title="${p}"></i>`).join("")}</span></div>
+    </button>`).join("") : '<div class="muted">No runs yet.</div>';
+}
+
+async function showNew() {
+  current = null; detail = null; loadRuns();
+  const tpl = await fetch("/api/brief-template").then((r) => r.text());
+  $("#main").innerHTML = `
+    <h1>New run</h1>
+    <p class="muted">Edit the brief (brand, products, audience, goals, season, constraints). The run stops after the plan so you can review it before any image is generated.</p>
+    <div class="card">
+      <label class="muted">Run id</label>
+      <input id="newid" value="run-${new Date().toISOString().slice(5, 16).replace(/[-T:]/g, "")}" style="margin:4px 0 14px;max-width:320px">
+      <label class="muted">Brief (YAML)</label>
+      <textarea id="newbrief" rows="26" style="margin-top:4px">${esc(tpl)}</textarea>
+      <div class="row" style="margin-top:12px"><button class="primary" onclick="createRun()">Start: brief → analysis → plan</button>
+      <span class="muted">No image costs in this step.</span></div>
+    </div>`;
+}
+async function createRun() {
+  const id = $("#newid").value.trim();
+  try { await api(`/api/runs/${encodeURIComponent(id)}/create`, { brief_yaml: $("#newbrief").value }); openRun(id); }
+  catch (e) { toast(e.message, 6000); }
+}
+
+async function openRun(id) {
+  current = id; tab = "posts"; resumedFor = null; history.replaceState(null, "", "#" + id);
+  $("#main").innerHTML = '<div class="empty"><span class="spin"></span></div>';
+  await refresh(true); loadRuns();
+}
+
+async function act(action, body = {}, confirmMsg) {
+  if (confirmMsg && !confirm(confirmMsg)) return;
+  try { await api(`/api/runs/${encodeURIComponent(current)}/${action}`, body); resumedFor = null; await refresh(true); loadRuns(); }
+  catch (e) { toast(e.message, 6000); }
+}
+
+function resumeAction(d) {
+  if (d.job && d.job.code === 3) return d.job.action === "regen" || d.job.action === "produce" ? "produce" : d.job.action === "create" ? "plan" : d.job.action;
+  return d.phases.plan ? "produce" : "plan";
+}
+
+function nextAction(d) {
+  const j = d.job, ph = d.phases, running = j && j.running;
+  if (running) return `<div class="card"><div class="row"><span class="spin"></span><b>${ACTION_NAMES[j.action] || j.action}…</b></div>
+    <pre class="console" id="console">${esc(j.lines.join("\n"))}</pre></div>`;
+  if (d.pending.length) {
+    const auto = d.provider === "agent";
+    return `<div class="card action"><h2>Waiting for the agent: ${d.pending.length} task(s)</h2>
+      <p class="muted">Judgement steps (analysis, plan, captions, QA) run in <b>Claude Code</b>. Open Claude Code in the project folder and paste:</p>
+      <code class="prompt">${esc(d.agent_prompt)}</code>
+      <div class="row"><button class="small" onclick="copy(detail.agent_prompt)">Copy prompt</button>
+      ${auto ? `<label class="muted"><input type="checkbox" style="width:auto" ${autoResume ? "checked" : ""} onchange="autoResume=this.checked"> continue automatically when the answers appear</label>` : ""}</div>
+      <ul class="keys">${d.pending.map((p) => `<li>${esc(p.key)}</li>`).join("")}</ul>
+      <p class="muted" style="margin:0">Or set <code>models.provider: anthropic</code> in config.yaml to run without stopping.</p></div>`;
+  }
+  if (j && j.code && j.code !== 3) return `<div class="card error"><h2>Step failed (exit ${j.code})</h2>
+    <pre class="console">${esc(j.lines.slice(-40).join("\n"))}</pre>
+    <div class="row" style="margin-top:10px"><button onclick="act('${resumeAction(d)}')">Retry</button></div></div>`;
+  if (j && j.code === 3) return `<div class="card action"><div class="row"><b>Agent answers are in.</b>
+    <button class="primary" onclick="act('${resumeAction(d)}')">Continue</button></div></div>`;
+  if (!ph.plan) return `<div class="card action"><div class="row"><b>Next:</b> brief → ingest → analysis → plan
+    <button class="primary" onclick="act('plan')">Run</button></div></div>`;
+  if (!ph.produce) return `<div class="card action"><h2>Approval 1: content plan</h2>
+    <p class="muted">Review the plan (tab <b>Plan</b>, editable). Approving generates the scenes with the image model and runs visual QA (about $0.30).</p>
+    <div class="row"><button class="primary" onclick="act('produce', {}, 'Generate images? This calls the OpenAI image API (costs money).')">Approve plan and generate</button>
+    <button onclick="tab='plan';render()">Review plan</button></div></div>`;
+  if (!ph.deliver) return `<div class="card action"><h2>Approval 2: finished posts</h2>
+    <p class="muted">Check the frames and captions below. Regenerate any frame you don't like, then deliver.</p>
+    <div class="row"><button class="primary" onclick="act('deliver')">Approve and deliver to deliverables/</button></div></div>`;
+  return `<div class="card"><div class="row"><b style="color:var(--ok)">✓ Delivered</b><span class="muted">Posts, captions and meta.md are in <code>deliverables/</code>. AI cost: $${d.cost.toFixed(2)}</span></div></div>`;
+}
+
+function postsView(d) {
+  if (!d.posts.length) return '<div class="empty">No plan yet.</div>';
+  const canRegen = d.phases.plan && !(d.job && d.job.running);
+  return d.posts.map((p) => `
+    <div class="post card">
+      <div class="post-head"><h2>Post ${p.number}</h2><span><span class="badge">${p.format}</span> <span class="badge">${esc(p.goal).slice(0, 60)}</span></span></div>
+      <p class="muted" style="margin:0">${esc(p.concept)}</p>
+      <div class="frames">${p.frames.map((f) => `
+        <div class="frame">
+          ${f.img ? `<img src="${f.img}" onclick="zoom('${f.img}')" alt="">` : `<div class="empty" style="padding:60px 0">not produced</div>`}
+          <div class="fi">
+            <div>${f.idx}. ${esc(f.headline)}</div>
+            ${f.score !== null ? `<div><span class="score ${f.passed ? "ok" : "bad"}">QA ${f.score}/10 ${f.passed ? "pass" : "fail"}</span> <span class="muted">· ${f.attempts} attempt(s)</span></div>
+            <div class="issues" title="${esc(f.issues.join(" "))}">${esc(f.issues.join(" "))}</div>` : ""}
+            ${f.img && canRegen ? `<button class="small" onclick="act('regen', {post:${p.number}, frame:${f.idx}}, 'Regenerate post ${p.number} frame ${f.idx}? New scene + QA (about $0.05).')">Regenerate</button>` : ""}
+          </div>
+        </div>`).join("")}</div>
+      <div class="row" style="align-items:flex-start;gap:18px">
+        ${p.reel ? `<video src="${p.reel}" controls loop playsinline></video>` : ""}
+        ${p.caption ? `<div style="flex:1;min-width:260px"><div class="caption">${esc(p.caption.caption)}\n\n${esc(p.caption.hashtags.join(" "))}</div>
+          <div class="row" style="margin-top:8px"><button class="small" onclick='copy(${JSON.stringify(p.caption.caption + "\n\n" + p.caption.hashtags.join(" "))})'>Copy caption</button>
+          <span class="muted" style="font-size:12px">Alt: ${esc(p.caption.alt_text)}</span></div></div>` : ""}
+      </div>
+    </div>`).join("");
+}
+
+function planView(d) {
+  if (!d.plan_json) return '<div class="empty">No plan yet.</div>';
+  const editable = !d.phases.produce;
+  return `<div class="card md">${d.plan_html}</div>
+    <div class="card"><h2>Edit plan (3_plan.json)</h2>
+    <p class="muted">${editable ? "Change headlines, scene prompts, formats or facts before images are generated. Saved only if it matches the schema." : "Images are already produced; use Regenerate on single frames."}</p>
+    <textarea id="planjson" rows="22" ${editable ? "" : "readonly"}>${esc(d.plan_json)}</textarea>
+    ${editable ? `<div class="row" style="margin-top:10px"><button class="primary" onclick="savePlan()">Save plan</button></div>` : ""}</div>`;
+}
+async function savePlan() {
+  try { await api(`/api/runs/${encodeURIComponent(current)}/save-plan`, { plan_json: $("#planjson").value }); toast("Plan saved"); refresh(true); }
+  catch (e) { toast(e.message, 8000); }
+}
+
+function render() {
+  const d = detail; if (!d) return;
+  const doneIdx = PHASES.filter((p) => d.phases[p]).length;
+  const views = {
+    posts: () => postsView(d),
+    plan: () => planView(d),
+    analysis: () => d.analysis_html ? `<div class="card md">${d.analysis_html}</div>` : '<div class="empty">No analysis yet.</div>',
+    brief: () => `<div class="card"><pre class="console" style="max-height:none">${esc(d.brief) || "—"}</pre></div>`,
+    log: () => `<div class="card"><pre class="console" style="max-height:600px">${esc(d.job ? d.job.lines.join("\n") : "No step started from the UI in this session.")}</pre></div>`,
+  };
+  const keepPlan = tab === "plan" && document.activeElement && document.activeElement.id === "planjson";
+  if (keepPlan) { $("#next").innerHTML = nextAction(d); return; }
+  $("#main").innerHTML = `
+    <div class="row" style="justify-content:space-between"><div><h1>${esc(d.id)}</h1>
+      <div class="muted">LLM: ${d.provider === "agent" ? "Claude Code (agent mode)" : "Claude API"} · images: OpenAI · AI cost so far $${d.cost.toFixed(2)}</div></div></div>
+    <div class="stepper">${PHASES.map((p, i) => `<span class="step ${d.phases[p] ? "done" : i === doneIdx ? "current" : ""}">${p}</span>`).join("")}</div>
+    <div id="next">${nextAction(d)}</div>
+    <div class="tabs">${["posts", "plan", "analysis", "brief", "log"].map((t) => `<button class="tab ${t === tab ? "active" : ""}" onclick="tab='${t}';render()">${t[0].toUpperCase() + t.slice(1)}</button>`).join("")}</div>
+    ${views[tab]()}`;
+  const c = $("#console"); if (c) c.scrollTop = c.scrollHeight;
+}
+
+let lastSig = "";
+async function refresh(force = false) {
+  if (!current) return;
+  try {
+    const d = await api(`/api/runs/${encodeURIComponent(current)}`);
+    const sig = JSON.stringify(d);
+    detail = d;
+    if (force || sig !== lastSig) { lastSig = sig; render(); }
+    if (autoResume && d.provider === "agent" && d.job && d.job.code === 3 && !d.pending.length && resumedFor !== d.job.id) {
+      resumedFor = d.job.id; act(resumeAction(d));
+    }
+  } catch (e) { toast(e.message); }
+}
+
+setInterval(refresh, 2000);
+setInterval(loadRuns, 5000);
+loadRuns();
+if (location.hash.length > 1) openRun(decodeURIComponent(location.hash.slice(1)));
+</script>
+</body>
+</html>

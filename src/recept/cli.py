@@ -33,7 +33,16 @@ def main() -> None:
     r.add_argument("--only-post", type=int, help="produce only post N")
     r.add_argument("--yes", action="store_true", help="skip the human approval gates")
     r.add_argument("--config", help="path to config.yaml")
+    u = sub.add_parser("ui", help="open the local web UI")
+    u.add_argument("--port", type=int, default=8765)
+    u.add_argument("--no-browser", action="store_true")
     args = ap.parse_args()
+
+    if args.cmd == "ui":
+        from .ui.server import serve
+
+        serve(args.port, not args.no_browser)
+        return
 
     cfg = load_config(args.config)
     run = Run.latest() if args.latest else Run(args.run_id)

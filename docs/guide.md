@@ -10,6 +10,8 @@
 3. The judgement steps run either through **Claude Code** (`provider: agent`, the default, no LLM API cost) or through the **Claude API** (`provider: anthropic`). In agent mode, open Claude Code in the folder and paste the starting prompt from `RECEPT.md`. Claude Code answers the tasks the program writes to `runs/<id>/agent/` and reruns the command.
 4. **Human steps:** approve the plan before images are generated, and approve the finished frames before delivery. Both gates are skipped with `--yes`.
 
+5. **Web UI** (optional): `uv run recept ui` covers the same steps in the browser: brief, plan editing and approval, frames with QA scores, regenerating a single frame, delivery.
+
 Settings are in `config.yaml`: models, image quality, sizes, brand colours and fonts, QA threshold and number of retries. Docker: see the README.
 
 ## Phases
@@ -42,7 +44,7 @@ QA scores every frame (product accuracy, stray text and people, legibility, bran
 
 **Time:** active work 3 h · waiting for generation ~5 min (6 images + 2 retries, ~30 s each) · AI cost **$0.33** (OpenAI images; the judgement steps ran in Claude Code).
 
-**My own refinement of an AI suggestion:** ⟨CONFIRM/EDIT — The AI proposed a generic "retro neon Miami" post and avoided the GTA reference over IP concerns. I found that GymBeam had posted exactly that style a week earlier, and that it was their best-performing post. So I changed the concept to a direct follow-up: same aesthetic, the real product added (their post had none), no people, and a holiday twist.⟩
+**My own refinement of an AI suggestion:** The AI proposed a generic "retro neon Miami" post and avoided the GTA reference over IP concerns. I found that GymBeam had posted exactly that style a week earlier, and that it was their best-performing post. So I changed the concept to a direct follow-up: same aesthetic, the real product added (their post had none), no people, and a holiday twist.
 
 ## Proposed next step: learning from feedback
 

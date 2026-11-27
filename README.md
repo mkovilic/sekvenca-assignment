@@ -40,6 +40,10 @@ uv run recept run --brief inputs/brief.yaml --run my-run
 
 Image generation always uses the OpenAI API (`gpt-image-2.5-sunburst`). The demo run cost **$0.33** (see `costs.json`).
 
+**Web UI:** `uv run recept ui` opens a local page (http://127.0.0.1:8765) where you write the brief, run each step,
+edit and approve the plan, review every frame with its QA score, regenerate single frames and approve delivery.
+It runs the same CLI underneath. In agent mode it shows the Claude Code prompt and continues on its own once the answers appear.
+
 Useful flags: `--latest` (resume the last run), `--from <phase>` / `--to <phase>`, `--only-post N`, `--yes` (skip approval gates).
 Without `--brief` the program runs an interactive briefing.
 
@@ -73,7 +77,7 @@ lists the facts each post uses, and a separate caption QA step checks the captio
 config.yaml        models, prices, formats, brand style, QA thresholds
 inputs/            brief.yaml + Instagram screenshots
 prompts/           the prompt for every judgement step (used in both modes)
-src/recept/        cli, phases/, render/ (cutout, compose, reel), llm.py, images.py, costs.py, schemas.py
+src/recept/        cli, phases/, render/ (cutout, compose, reel), ui/ (web UI), llm.py, images.py, costs.py, schemas.py
 deliverables/      the three posts
 examples/          intermediate results of the demo run
 docs/              guide (md + pdf)
