@@ -18,14 +18,25 @@ Instructions and the write-up are in [`docs/guide.pdf`](docs/guide.pdf).
 # needs uv (https://docs.astral.sh/uv/); Python 3.12 is installed by uv
 cp .env.example .env          # add OPENAI_API_KEY
 uv sync
-uv run recept run --brief inputs/brief.yaml --run my-run
 ```
 
-The judgement steps (analysis, plan, captions, QA) run in one of two modes, set by `models.provider` in `config.yaml`:
+The judgement steps (analysis, plan, captions, QA) need an LLM. Pick one:
 
-- `agent` (default, no LLM API cost): the program writes each task to `runs/<id>/agent/*.request.md` and stops.
-  Claude Code answers the tasks and reruns the command. See [`RECEPT.md`](RECEPT.md) for the starting prompt.
-- `anthropic`: the same prompts and schemas go to the Claude API with structured outputs, end to end. Needs `ANTHROPIC_API_KEY`.
+**Option A: Claude Code (default, no LLM API cost).** Open Claude Code in this folder (`claude`) and paste:
+
+```
+Read RECEPT.md and run the recipe for inputs/brief.yaml with run id my-run. Do every agent task yourself, stop for my approval after the plan and before delivery.
+```
+
+Claude Code runs the program. The program writes each judgement task to `runs/<id>/agent/*.request.md` and stops.
+Claude Code answers each task and reruns the program, until the posts are in `deliverables/`. You only approve the plan and the final posts.
+Do not paste the files from `prompts/` by hand: they are already included in every request file, together with the data.
+
+**Option B: Claude API (fully automatic).** Set `models.provider: anthropic` in `config.yaml`, add `ANTHROPIC_API_KEY` to `.env`, then run:
+
+```bash
+uv run recept run --brief inputs/brief.yaml --run my-run
+```
 
 Image generation always uses the OpenAI API (`gpt-image-2.5-sunburst`). The demo run cost **$0.33** (see `costs.json`).
 

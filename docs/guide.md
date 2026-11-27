@@ -7,7 +7,7 @@
 
 1. Install [uv](https://docs.astral.sh/uv/). Run `cp .env.example .env` and add `OPENAI_API_KEY`, then run `uv sync`.
 2. `uv run recept run --brief inputs/brief.yaml --run my-run`. Leave out `--brief` to get the interactive briefing.
-3. The judgement steps run either through **Claude Code** (`provider: agent`, the default, no LLM API cost) or through the **Claude API** (`provider: anthropic`). In agent mode, open Claude Code in the folder and paste the starting prompt from `RECEPT.md`. Claude Code answers the tasks the program writes to `runs/<id>/agent/` and reruns the command.
+3. The judgement steps run either through **Claude Code** (`provider: agent`, the default, no LLM API cost) or through the **Claude API** (`provider: anthropic`). In agent mode, open Claude Code in the folder and paste the one-line starting prompt from the README. Claude Code runs the program, answers the tasks it writes to `runs/<id>/agent/` and reruns it. The program also prints this prompt whenever it stops. Do not paste the files from `prompts/` by hand.
 4. **Human steps:** approve the plan before images are generated, and approve the finished frames before delivery. Both gates are skipped with `--yes`.
 
 Settings are in `config.yaml`: models, image quality, sizes, brand colours and fonts, QA threshold and number of retries. Docker: see the README.

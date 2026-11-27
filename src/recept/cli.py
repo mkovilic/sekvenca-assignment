@@ -61,9 +61,15 @@ def main() -> None:
     try:
         _pipeline(args, run, cfg, todo, stop, llm, images)
     except AgentPending as e:
-        print(f"\nWaiting for the agent (Claude Code). Answer these tasks, then rerun with --run {run.id}:")
+        print(f"\nWaiting for the agent. {len(e.requests)} task(s) in {run.dir / 'agent'}:")
         for req in e.requests:
-            print(f"  - {req}")
+            print(f"  - {req.name}")
+        print(
+            "\nOpen Claude Code in this folder (`claude`) and paste:\n\n"
+            f"  Read RECEPT.md and continue the recipe run {run.id}. Do every agent task yourself, "
+            "stop for my approval after the plan and before delivery.\n\n"
+            "Or set models.provider: anthropic in config.yaml (needs ANTHROPIC_API_KEY) to run without stopping."
+        )
         sys.exit(3)
 
 
