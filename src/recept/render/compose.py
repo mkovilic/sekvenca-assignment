@@ -45,18 +45,27 @@ def _wrap(draw: ImageDraw.ImageDraw, words: list[str], font, max_w: int) -> list
     return lines
 
 
+def _line_height(font, lines: list[list[str]], size: int) -> int:
+    # Accented capitals (Č, Š, Ž, Ć) rise above the cap height; make room so they don't hit the line above.
+    later = "".join(" ".join(l) for l in lines[1:])
+    cap_top = font.getbbox("H")[1]
+    top = min((font.getbbox(c)[1] for c in set(later) if not c.isspace()), default=cap_top)
+    return int(size * 1.08) + max(0, cap_top - top)
+
+
 def _fit_headline(draw, text: str, style: Style, max_w: int, max_h: int, start: int):
     words = text.upper().split()
     size = start
     while size > 40:
         font = style.head(size)
         lines = _wrap(draw, words, font, max_w)
-        lh = int(size * 1.08)
+        lh = _line_height(font, lines, size)
         if len(lines) * lh <= max_h and all(draw.textlength(" ".join(l), font=font) <= max_w for l in lines):
             return font, lines, lh
         size -= 4
     font = style.head(size)
-    return font, _wrap(draw, words, font, max_w), int(size * 1.08)
+    lines = _wrap(draw, words, font, max_w)
+    return font, lines, _line_height(font, lines, size)
 
 
 def draw_text_block(img: Image.Image, frame: Frame, style: Style, zone: str, alpha: float = 1.0) -> Image.Image:
@@ -186,13 +195,14 @@ def dark_card(size: tuple[int, int], style: Style) -> Image.Image:
     # Mirrors the brand's own educational template: near-black with a faint grid.
     W, H = size
     img = Image.new("RGBA", size, (*style.dark, 255))
-    d = ImageDraw.Draw(img)
+    grid = Image.new("RGBA", size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(grid)
     step = W // 9
     for x in range(0, W, step):
         d.line([(x, 0), (x, H)], fill=(255, 255, 255, 18), width=1)
     for y in range(0, H, step):
         d.line([(0, y), (W, y)], fill=(255, 255, 255, 18), width=1)
-    return img
+    return Image.alpha_composite(img, grid)
 
 
 def page_marker(img: Image.Image, idx: int, total: int, style: Style) -> Image.Image:
